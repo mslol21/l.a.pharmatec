@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
+        display: ['Sora', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -21,6 +21,7 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           glow: "hsl(var(--primary-glow))",
+          soft: "hsl(var(--primary-soft))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -50,13 +51,16 @@ export default {
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
+        'gradient-deep': 'var(--gradient-deep)',
         'gradient-soft': 'var(--gradient-soft)',
         'gradient-card': 'var(--gradient-card)',
-        'gradient-glow': 'var(--gradient-glow)',
+        'gradient-radial': 'var(--gradient-radial)',
+        'gradient-spot': 'var(--gradient-spot)',
       },
       boxShadow: {
         elegant: 'var(--shadow-elegant)',
         glow: 'var(--shadow-glow)',
+        'glow-blue': 'var(--shadow-glow-blue)',
         card: 'var(--shadow-card)',
       },
       borderRadius: {
