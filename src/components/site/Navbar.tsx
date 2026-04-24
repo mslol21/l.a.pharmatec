@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
@@ -21,51 +21,55 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-card" : "bg-transparent"}`}>
-      <nav className="container-x flex items-center justify-between py-4 px-6 md:px-10">
-        <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-hero flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform duration-300">
-            <span className="text-primary-foreground font-display font-bold text-lg">L</span>
-          </div>
-          <div className="leading-tight">
-            <div className="font-display font-bold text-foreground">L.A. Pharmatec</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Biotech R&amp;D</div>
-          </div>
-        </a>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
+      <div className={`container-x mx-auto px-4 md:px-6 transition-all duration-500`}>
+        <nav className={`flex items-center justify-between rounded-2xl px-4 md:px-6 py-3 transition-all duration-500 ${scrolled ? "glass shadow-card" : "bg-transparent"}`}>
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-hero flex items-center justify-center shadow-glow-blue overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
+              <span className="relative text-white font-display font-bold text-lg">L</span>
+            </div>
+            <div className="leading-tight">
+              <div className="font-display font-bold text-foreground text-[15px]">L.A. Pharmatec</div>
+              <div className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground font-medium">Biotech R&amp;D</div>
+            </div>
+          </a>
 
-        <ul className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-hero hover:after:w-full after:transition-all">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <a href="#contato" className="hidden lg:inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-hero text-primary-foreground font-medium text-sm shadow-elegant hover:shadow-glow transition-all hover:-translate-y-0.5">
-          Solicitar consultoria
-        </a>
-
-        <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-foreground" aria-label="Menu">
-          {open ? <X /> : <Menu />}
-        </button>
-      </nav>
-
-      {open && (
-        <div className="lg:hidden glass border-t border-white/40 animate-fade-in">
-          <ul className="flex flex-col p-6 gap-4">
+          <ul className="hidden lg:flex items-center gap-1">
             {links.map((l) => (
               <li key={l.href}>
-                <a onClick={() => setOpen(false)} href={l.href} className="block py-2 font-medium text-foreground/80 hover:text-primary">
+                <a href={l.href} className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/75 hover:text-primary hover:bg-primary/5 transition-all">
                   {l.label}
                 </a>
               </li>
             ))}
-            <a href="#contato" onClick={() => setOpen(false)} className="text-center px-5 py-3 rounded-full bg-gradient-hero text-primary-foreground font-medium">Solicitar consultoria</a>
           </ul>
-        </div>
-      )}
+
+          <a href="#contato" className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm shadow-card hover:shadow-elegant hover:-translate-y-0.5 transition-all group">
+            Consultoria
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
+
+          <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-foreground" aria-label="Menu">
+            {open ? <X /> : <Menu />}
+          </button>
+        </nav>
+
+        {open && (
+          <div className="lg:hidden glass mt-2 rounded-2xl shadow-card animate-fade-in">
+            <ul className="flex flex-col p-4 gap-1">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a onClick={() => setOpen(false)} href={l.href} className="block px-4 py-3 rounded-lg font-medium text-foreground/80 hover:text-primary hover:bg-primary/5">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+              <a href="#contato" onClick={() => setOpen(false)} className="mt-2 text-center px-5 py-3 rounded-full bg-primary text-primary-foreground font-medium">Consultoria</a>
+            </ul>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
