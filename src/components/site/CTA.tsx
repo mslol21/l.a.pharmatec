@@ -18,8 +18,8 @@ const CTA = () => (
           </div>
           
           <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight text-white">
-            Precisa de suporte científico ou <br />
-            <span className="text-gradient-light">ensaios laboratoriais?</span>
+            Precisa validar seu produto ou <br />
+            <span className="text-gradient-light">desenvolver uma solução científica?</span>
           </h2>
           
           <p className="text-white/70 text-lg md:text-2xl max-w-3xl leading-relaxed font-light">

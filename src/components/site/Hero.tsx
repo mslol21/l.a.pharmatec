@@ -43,29 +43,30 @@ const Hero = () => {
               L.A. Pharmatec · Excelência em Biotecnologia
             </motion.div>
 
-            <h1 className="font-display font-extrabold text-white leading-[1.1] tracking-tight text-5xl md:text-6xl xl:text-7xl mb-8">
-              Inovação em fármacos para <br />
-              <span className="text-gradient-light">saúde humana e animal</span>
+            <h1 className="font-display font-extrabold text-white leading-[1.1] tracking-tight text-4xl md:text-5xl xl:text-6xl mb-8">
+              Desenvolvemos e validamos <br />
+              <span className="text-gradient-light">soluções científicas</span> para indústrias farmacêuticas, cosméticas e biotecnológicas
             </h1>
 
-            <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-              Lideramos o futuro da biotecnologia através de <span className="text-white font-semibold">Pesquisa e Desenvolvimento (P&D)</span> de alto impacto. 
-              Sob o paradigma <span className="text-secondary-glow italic font-medium">One Health</span>, integramos soluções científicas para os desafios globais da saúde integrada.
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl font-light">
+              Especialistas em <span className="text-white font-medium">P&D, microbiologia e ensaios laboratoriais</span> para acelerar o desenvolvimento do seu produto com segurança e precisão técnica.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
               <a
                 href="#contato"
-                className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-secondary text-white font-bold transition-all duration-300 hover:bg-secondary-glow hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0"
+                className="group relative flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-secondary text-white font-bold transition-all duration-500 hover:bg-secondary-glow hover:shadow-glow hover:-translate-y-1 active:translate-y-0"
               >
                 Solicitar consultoria
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="#servicos"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95"
+                href="https://wa.me/5516999999999"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 active:scale-95"
               >
-                Conhecer serviços
+                Falar com especialista
               </a>
             </div>
 

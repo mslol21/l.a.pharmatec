@@ -1,6 +1,8 @@
 import Navbar from "@/components/site/Navbar";
 import Hero from "@/components/site/Hero";
+import TargetAudience from "@/components/site/TargetAudience";
 import About from "@/components/site/About";
+import ScientificAuthority from "@/components/site/ScientificAuthority";
 import Founders from "@/components/site/Founders";
 import OneHealth from "@/components/site/OneHealth";
 import Services from "@/components/site/Services";
@@ -13,8 +15,8 @@ import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "L.A. Pharmatec — Inovação biotech em fármacos | One Health";
-    const desc = "Startup biotech especializada em P&D de fármacos para saúde humana, animal e ambiental. Microbiologia, parasitologia e One Health.";
+    document.title = "L.A. Pharmatec | Inovação em P&D para Indústrias Farmacêuticas e Cosméticas";
+    const desc = "Especialistas em P&D, microbiologia e ensaios laboratoriais para acelerar o desenvolvimento de produtos farmacêuticos, cosméticos e biotecnológicos.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -28,7 +30,9 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+      <TargetAudience />
       <About />
+      <ScientificAuthority />
       <Founders />
       <OneHealth />
       <Services />
