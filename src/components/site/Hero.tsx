@@ -105,7 +105,7 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-8 top-20 glass-dark rounded-3xl px-6 py-4 shadow-elegant hidden lg:block"
+              className="absolute -left-8 top-20 z-20 glass-dark rounded-3xl px-6 py-4 shadow-elegant hidden lg:block"
             >
               <div className="flex items-center gap-4">
                 <div className="w-3 h-3 rounded-full bg-secondary-glow animate-pulse" />
@@ -119,7 +119,7 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -right-8 bottom-20 glass-dark rounded-3xl px-6 py-4 shadow-elegant hidden lg:block"
+              className="absolute -right-8 bottom-20 z-20 glass-dark rounded-3xl px-6 py-4 shadow-elegant hidden lg:block"
             >
               <div className="flex items-center gap-4">
                 <Microscope className="w-6 h-6 text-secondary-glow" />
