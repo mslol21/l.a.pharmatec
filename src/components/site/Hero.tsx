@@ -1,134 +1,154 @@
-import hero from "@/assets/hero.png";
-import { ArrowRight, Sparkles, FlaskConical, Microscope, Dna } from "lucide-react";
+import heroScientific from "@/assets/hero-scientific.png";
+import { ArrowRight, Sparkles, FlaskConical, Microscope, Dna, ShieldCheck, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[105vh] flex items-center pt-32 pb-20 overflow-hidden"
+      className="relative min-h-[100vh] flex items-center pt-32 pb-20 overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, hsl(218 80% 8%) 0%, hsl(215 75% 12%) 40%, hsl(212 70% 18%) 75%, hsl(162 70% 18%) 100%)",
+          "radial-gradient(circle at top right, hsl(218 80% 12%) 0%, hsl(222 84% 6%) 100%)",
       }}
     >
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-grid-dark opacity-30" />
-      <div className="absolute -top-40 -left-40 w-[800px] h-[800px] rounded-full bg-primary-glow/15 blur-[160px] animate-pulse-glow" />
-      <div className="absolute top-1/3 -right-40 w-[900px] h-[900px] rounded-full bg-secondary-glow/15 blur-[180px] animate-pulse-glow" />
-      <div className="absolute bottom-0 left-1/3 w-[600px] h-[600px] rounded-full bg-accent/10 blur-[150px]" />
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[url('@/assets/pattern.png')] opacity-[0.03] mix-blend-overlay" />
+      <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-secondary-glow/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 animate-pulse-glow" />
+      <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-primary-glow/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/4" />
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.15]" 
+           style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
       <div className="container-wide relative z-10 px-6">
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* LEFT: Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-dark text-[11px] font-bold uppercase tracking-[0.25em] text-secondary-glow">
-              <Sparkles className="w-4 h-4" />
-              <span>Startup biotech premium · Supera Parque</span>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-dark border border-white/10 text-secondary-glow text-xs font-bold uppercase tracking-widest mb-8"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-glow opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-glow"></span>
+              </span>
+              L.A. Pharmatec · Excelência em Biotecnologia
+            </motion.div>
 
-            <h1 className="font-display font-bold text-white leading-[0.9] tracking-tight text-5xl sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]">
-              Moldando o futuro da <br />
-              <span className="text-gradient-light">saúde integrada</span>.
+            <h1 className="font-display font-extrabold text-white leading-[1.1] tracking-tight text-5xl md:text-6xl xl:text-7xl mb-8">
+              Inovação em fármacos para <br />
+              <span className="text-gradient-light">saúde humana e animal</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed font-light">
-              Pesquisa e Desenvolvimento (P&amp;D) de alto nível em microbiologia e parasitologia sob o paradigma global <span className="text-secondary-glow font-medium italic">One Health</span>.
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
+              Lideramos o futuro da biotecnologia através de <span className="text-white font-semibold">Pesquisa e Desenvolvimento (P&D)</span> de alto impacto. 
+              Sob o paradigma <span className="text-secondary-glow italic font-medium">One Health</span>, integramos soluções científicas para os desafios globais da saúde integrada.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 pt-4">
+            <div className="flex flex-wrap gap-4 mb-12">
               <a
                 href="#contato"
-                className="group inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-secondary to-secondary-glow text-white font-bold text-lg shadow-glow hover:shadow-premium hover:-translate-y-1 active:scale-95 transition-all duration-500"
+                className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-secondary text-white font-bold transition-all duration-300 hover:bg-secondary-glow hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0"
               >
                 Solicitar consultoria
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#servicos"
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-white/5 backdrop-blur-md border border-white/20 text-white font-bold text-lg hover:bg-white/10 hover:border-white/30 active:scale-95 transition-all duration-500"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95"
               >
-                Portfólio técnico
+                Conhecer serviços
               </a>
             </div>
 
-            {/* Trust signals */}
-            <div className="flex flex-wrap items-center gap-8 pt-10 text-white/40 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em]">
-              <div className="flex items-center gap-3 group cursor-default">
-                <FlaskConical className="w-5 h-5 text-secondary-glow group-hover:scale-110 transition-transform" />
-                OECD Certified
+            {/* Scientific Credentials */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-white/5 text-secondary-glow">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-bold leading-tight">Certificação</div>
+                  <div className="text-sm text-white/80 font-semibold">Padrão OECD</div>
+                </div>
               </div>
-              <div className="w-px h-5 bg-white/10" />
-              <div className="flex items-center gap-3 group cursor-default">
-                <Microscope className="w-5 h-5 text-secondary-glow group-hover:scale-110 transition-transform" />
-                ISO Standards
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-white/5 text-secondary-glow">
+                  <Zap className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-bold leading-tight">Metodologia</div>
+                  <div className="text-sm text-white/80 font-semibold">Agilidade em P&D</div>
+                </div>
               </div>
-              <div className="w-px h-5 bg-white/10" />
-              <div className="flex items-center gap-3 group cursor-default">
-                <Dna className="w-5 h-5 text-secondary-glow group-hover:scale-110 transition-transform" />
-                One Health Lab
+              <div className="flex items-center gap-3 col-span-2 sm:col-span-1">
+                <div className="p-2 rounded-lg bg-white/5 text-secondary-glow">
+                  <FlaskConical className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-bold leading-tight">Infraestrutura</div>
+                  <div className="text-sm text-white/80 font-semibold">Lab High-Tech</div>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT: Scientific image */}
+          {/* RIGHT: Visual Impact */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
             className="relative"
           >
-            {/* Outer decorative rings */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-125">
-              <div className="absolute w-full h-full rounded-full border border-secondary-glow/10 animate-spin-slow" style={{ borderStyle: "dashed" }} />
-              <div className="absolute w-[80%] h-[80%] rounded-full border border-primary-glow/10 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "50s" }} />
-            </div>
-
-            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-elegant border border-white/10 animate-float aspect-square sm:aspect-video lg:aspect-square">
+            {/* Visual background elements */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-secondary/20 to-primary/20 blur-3xl rounded-[3rem] opacity-50" />
+            
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-premium aspect-[4/5] sm:aspect-square lg:aspect-[4/5] xl:aspect-square group">
               <img
-                src={hero}
-                alt="Biotecnologia avançada"
-                width={1024}
-                height={1024}
-                className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-[2s]"
+                src={heroScientific}
+                alt="Biotecnologia e inovação científica"
+                className="w-full h-full object-cover transition-transform duration-[10s] ease-linear group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-secondary/10" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218_80%_8%)]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              
+              {/* Floating Data Badge */}
+              <div className="absolute bottom-6 left-6 right-6 p-6 glass-dark rounded-2xl border border-white/10 backdrop-blur-xl">
+                <div className="flex justify-between items-center mb-2">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-secondary-glow font-bold">Research Pipeline</div>
+                  <div className="text-[10px] text-white/40">v2.4.0</div>
+                </div>
+                <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden mb-4">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: "75%" }}
+                    transition={{ duration: 2, delay: 1 }}
+                    className="h-full bg-gradient-to-r from-secondary to-secondary-glow"
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex items-center gap-2">
+                    <Dna className="w-4 h-4 text-secondary-glow" />
+                    <span className="text-xs text-white/80 font-medium">Genômica</span>
+                  </div>
+                  <div className="flex items-center gap-2 border-l border-white/10 pl-4">
+                    <Microscope className="w-4 h-4 text-secondary-glow" />
+                    <span className="text-xs text-white/80 font-medium">Parasitologia</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Floating badges */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-8 top-20 z-20 glass-dark rounded-3xl px-6 py-4 shadow-elegant hidden lg:block"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-3 h-3 rounded-full bg-secondary-glow animate-pulse" />
-                <div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Molecular R&D</div>
-                  <div className="font-display font-bold text-white text-base leading-none mt-1">Advanced Pipeline</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -right-8 bottom-20 z-20 glass-dark rounded-3xl px-6 py-4 shadow-elegant hidden lg:block"
-            >
-              <div className="flex items-center gap-4">
-                <Microscope className="w-6 h-6 text-secondary-glow" />
-                <div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Standard</div>
-                  <div className="font-display font-bold text-white text-base leading-none mt-1">OECD 129 Compliant</div>
-                </div>
-              </div>
-            </motion.div>
+            {/* Decorative Orbs */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-secondary-glow/20 blur-2xl rounded-full animate-float" />
+            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-primary-glow/10 blur-3xl rounded-full animate-float" style={{ animationDelay: "2s" }} />
           </motion.div>
         </div>
       </div>
@@ -137,3 +157,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

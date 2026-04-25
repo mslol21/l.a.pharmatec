@@ -1,159 +1,177 @@
-import { Beaker, ShieldCheck, Microscope, FlaskConical, Search, Lightbulb, ArrowUpRight } from "lucide-react";
+import { Beaker, ShieldCheck, Microscope, FlaskConical, Lightbulb, Zap, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import labImg from "@/assets/lab.png";
+import healthImg from "@/assets/one-health.png";
+import cellsImg from "@/assets/cells.png";
 
 interface ServiceCardProps {
   icon: any;
   title: string;
   description: string;
+  image?: string;
   highlighted?: boolean;
-  tag?: string;
+  className?: string;
   index: number;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, highlighted, tag, index }: ServiceCardProps) => (
+const ServiceCard = ({ icon: Icon, title, description, image, highlighted, className, index }: ServiceCardProps) => (
   <motion.article
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-    className={`group relative p-10 rounded-[2.5rem] transition-all duration-700 hover:-translate-y-2 overflow-hidden border ${
-      highlighted 
-        ? "bg-gradient-deep border-white/10 shadow-glow text-white md:col-span-2 lg:col-span-1" 
-        : "bg-white border-border/50 shadow-premium hover:border-primary/20"
+    transition={{ duration: 0.8, delay: index * 0.1 }}
+    className={`group relative rounded-[2.5rem] overflow-hidden border border-white/10 transition-all duration-500 hover:shadow-premium group ${className} ${
+      highlighted ? "min-h-[400px]" : "min-h-[300px]"
     }`}
   >
-    <div className={`absolute top-0 right-0 w-40 h-40 rounded-full blur-[100px] transition-opacity duration-700 opacity-20 ${
-      highlighted ? "bg-secondary-glow" : "bg-primary group-hover:opacity-40"
-    }`} />
-    
-    <div className="relative z-10 flex flex-col h-full space-y-8">
-      <div className="flex items-start justify-between">
-        <div className={`w-16 h-16 rounded-[1.25rem] flex items-center justify-center transition-all duration-700 ${
-          highlighted 
-            ? "bg-white/10 border border-white/20 shadow-glow" 
-            : "bg-primary/5 border border-primary/10 group-hover:bg-primary group-hover:border-transparent group-hover:shadow-glow-blue"
-        }`}>
-          <Icon className={`w-8 h-8 transition-colors duration-500 ${
-            highlighted ? "text-secondary-glow" : "text-primary group-hover:text-white"
-          }`} strokeWidth={1.5} />
-        </div>
-        {tag && (
-          <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full ${
-            highlighted ? "bg-white/10 text-secondary-glow border border-white/5" : "bg-secondary/5 text-secondary border border-secondary/10"
-          }`}>
-            {tag}
-          </span>
-        )}
+    {/* Background Image for Highlighted Cards */}
+    {image && (
+      <div className="absolute inset-0">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+      </div>
+    )}
+
+    {/* Background Pattern for Non-Image Cards */}
+    {!image && (
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
+    )}
+
+    <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
+        image ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-primary/20 border border-primary/20 group-hover:bg-primary group-hover:border-transparent"
+      }`}>
+        <Icon className={`w-7 h-7 ${image ? "text-secondary-glow" : "text-primary group-hover:text-white"}`} />
       </div>
 
-      <div className="space-y-4">
-        <h3 className={`font-display font-bold text-2xl leading-tight tracking-tight ${highlighted ? "text-white" : "text-primary"}`}>
+      <div className="space-y-3">
+        <h3 className={`font-display font-bold leading-tight ${highlighted ? "text-3xl text-white" : "text-xl text-white"}`}>
           {title}
         </h3>
-        <p className={`text-[15px] leading-relaxed font-light ${highlighted ? "text-white/70" : "text-muted-foreground"}`}>
+        <p className={`text-sm leading-relaxed ${highlighted ? "text-white/70" : "text-white/60"}`}>
           {description}
         </p>
       </div>
 
-      <div className="pt-6 mt-auto flex items-center justify-between border-t border-current/5">
-        <span className={`text-[11px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-[-10px] group-hover:translate-x-0 ${
-          highlighted ? "text-secondary-glow" : "text-primary"
-        }`}>
-          Consultar Viabilidade
+      <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-secondary-glow">
+          Saiba mais
         </span>
-        <div className={`p-2.5 rounded-full transition-all duration-500 ${
-          highlighted ? "bg-white/10" : "bg-muted group-hover:bg-primary group-hover:text-white"
-        }`}>
-          <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </div>
+        <ArrowRight className="w-5 h-5 text-secondary-glow" />
       </div>
     </div>
   </motion.article>
 );
 
-const servicesArr = [
+const services = [
   {
-    icon: Beaker,
-    title: "Bioensaios & Eficácia",
-    description: "Screening detalhado de compostos com análise estatística robusta e protocolos de excelência laboratorial.",
-    tag: "Priority Service",
-    highlighted: true
+    icon: FlaskConical,
+    title: "P&D de Fármacos",
+    description: "Desenvolvimento completo de novas moléculas, da descoberta ao protótipo final.",
+    image: labImg,
+    highlighted: true,
+    className: "lg:col-span-2"
   },
   {
     icon: ShieldCheck,
-    title: "Segurança & In Vitro",
-    description: "Métodos alternativos de toxicidade alinhados com as diretrizes OECD 129 e 432 para agilidade regulatória.",
-    tag: "Compliance",
-    highlighted: true
+    title: "Saúde Integrada",
+    description: "Soluções estratégicas sob o paradigma One Health para um futuro sustentável.",
+    image: healthImg,
+    highlighted: true,
+    className: "lg:col-span-1"
   },
   {
-    icon: Microscope,
-    title: "P&D Integrado",
-    description: "Terceirização estratégica de pipelines de desenvolvimento biotecnológico para startups de base tecnológica.",
-    tag: "High Value",
-    highlighted: true
-  },
-  {
-    icon: FlaskConical,
-    title: "Análise Microbiológica",
-    description: "Controle rigoroso de limites microbianos e bioprodutos seguindo padrões de qualidade ISO internacionais.",
-    tag: "Standard ISO"
-  },
-  {
-    icon: Search,
-    title: "Estudos de Mecanismo",
-    description: "Identificação granular de vias de sinalização e mecanismos de morte celular por proteômica aplicada.",
-    tag: "Deep Science"
+    icon: Beaker,
+    title: "Ensaios de Segurança",
+    description: "Testes pré-clínicos avançados e toxicidade in vitro com rigor internacional.",
+    image: cellsImg,
+    highlighted: true,
+    className: "lg:col-span-1"
   },
   {
     icon: Lightbulb,
-    title: "Estratégia Científica",
-    description: "Mentoria técnica para estruturação de projetos SBIR/STTR e captação de recursos governamentais.",
-    tag: "BizDev"
+    title: "Consultoria Estratégica",
+    description: "Apoio na captação de recursos e estruturação de projetos científicos de alto valor.",
+    highlighted: false,
+    className: "lg:col-span-1"
+  },
+  {
+    icon: Microscope,
+    title: "Análises Laboratoriais",
+    description: "Controle microbiológico e bioprodutos seguindo padrões internacionais de qualidade.",
+    highlighted: false,
+    className: "lg:col-span-1"
   }
 ];
 
 const Services = () => (
-  <section id="servicos" className="section-padding relative bg-gradient-soft overflow-hidden">
-    <div className="absolute inset-0 bg-grid opacity-30" />
-    <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-gradient-radial opacity-30 pointer-events-none" />
+  <section id="servicos" className="section-padding relative bg-[hsl(222,84%,4%)] overflow-hidden">
+    {/* Decorative Elements */}
+    <div className="absolute inset-0 bg-grid-dark opacity-20" />
+    <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary-glow/10 blur-[120px] rounded-full" />
+    <div className="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-secondary-glow/5 blur-[100px] rounded-full" />
 
     <div className="container-wide relative">
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-24">
-        <div className="max-w-2xl space-y-6">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="eyebrow"
-          >
-            Technical Portfolio
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-[5rem] font-bold leading-[1] tracking-tight"
-          >
-            Capacidade laboratorial <br />
-            <span className="text-gradient">sem fronteiras</span>.
-          </motion.h2>
-        </div>
+      <div className="max-w-3xl mb-20">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-3 px-4 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary-glow text-[10px] font-bold uppercase tracking-widest mb-6"
+        >
+          <Zap className="w-3 h-3" />
+          Serviços de Excelência
+        </motion.div>
+        
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8"
+        >
+          Soluções científicas que <br />
+          <span className="text-gradient-light">impulsionam seu negócio</span>.
+        </motion.h2>
+        
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed font-light pb-2"
+          className="text-lg text-white/60 leading-relaxed font-light"
         >
-          Oferecemos soluções modulares que se adaptam à velocidade exigida pelo mercado, sem comprometer o rigor científico.
+          Traduzimos ciência complexa em resultados comerciais tangíveis. Nossos serviços são modulares e focados na agilidade regulatória e eficácia comprovada.
         </motion.p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-        {servicesArr.map((service, i) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {services.map((service, i) => (
           <ServiceCard key={service.title} {...service} index={i} />
         ))}
+        
+        {/* Contact Teaser Card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="lg:col-span-1 p-8 rounded-[2.5rem] bg-gradient-to-br from-secondary/20 to-primary/20 border border-white/5 flex flex-col justify-center items-center text-center space-y-6"
+        >
+          <div className="w-16 h-16 rounded-full bg-secondary-glow/20 flex items-center justify-center animate-pulse">
+            <Lightbulb className="w-8 h-8 text-secondary-glow" />
+          </div>
+          <h3 className="text-2xl font-bold text-white">Projeto Especial?</h3>
+          <p className="text-white/60 text-sm">Desenvolvemos protocolos customizados para necessidades específicas de P&D.</p>
+          <a 
+            href="#contato" 
+            className="w-full btn-premium bg-white text-primary hover:bg-secondary hover:text-white transition-all duration-500"
+          >
+            Falar com Especialista
+          </a>
+        </motion.div>
       </div>
     </div>
   </section>
