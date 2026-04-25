@@ -1,12 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* L.A. Pharmatec — Premium Biotech Design System
-   Deep Navy + Emerald Green + White
-*/
 
 @layer base {
   :root {
@@ -20,65 +16,62 @@
     --popover-foreground: 215 60% 10%;
 
     /* Deep navy brand */
-    --primary: 218 75% 18%;
+    --primary: 218 75% 15%;
     --primary-foreground: 210 40% 99%;
-    --primary-glow: 212 90% 50%;
-    --primary-soft: 215 60% 35%;
+    --primary-glow: 212 100% 55%;
+    --primary-soft: 215 50% 25%;
 
     /* Emerald biotech green */
-    --secondary: 160 84% 30%;
+    --secondary: 162 90% 28%;
     --secondary-foreground: 210 40% 99%;
-    --secondary-glow: 158 80% 48%;
+    --secondary-glow: 160 85% 50%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 18% 42%;
+    --muted: 210 40% 96.5%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 188 95% 42%;
+    --accent: 195 100% 45%;
     --accent-foreground: 215 60% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 99%;
 
-    --border: 215 28% 90%;
-    --input: 215 28% 90%;
-    --ring: 218 75% 18%;
+    --border: 215 25% 92%;
+    --input: 215 25% 92%;
+    --ring: 218 75% 15%;
 
-    --radius: 1.25rem;
+    --radius: 1.5rem;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(218 75% 12%) 0%, hsl(212 70% 22%) 50%, hsl(160 70% 25%) 100%);
-    --gradient-deep: linear-gradient(160deg, hsl(218 75% 10%) 0%, hsl(215 65% 15%) 50%, hsl(160 60% 18%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(210 50% 99%) 0%, hsl(195 60% 96%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(200 40% 98%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(212 90% 50%) 0%, hsl(160 84% 40%) 100%);
-    --gradient-text-light: linear-gradient(135deg, hsl(195 95% 75%) 0%, hsl(158 80% 65%) 100%);
-    --gradient-border: linear-gradient(135deg, hsl(212 90% 50% / 0.4), hsl(160 84% 40% / 0.4));
-    --gradient-radial: radial-gradient(circle at 50% 0%, hsl(212 90% 50% / 0.18), transparent 60%);
-    --gradient-spot: radial-gradient(circle at 50% 50%, hsl(158 80% 48% / 0.25), transparent 70%);
-
-    /* Shadows */
-    --shadow-elegant: 0 25px 80px -25px hsl(218 75% 18% / 0.35);
-    --shadow-glow: 0 0 60px hsl(158 80% 48% / 0.4);
-    --shadow-glow-blue: 0 0 80px hsl(212 90% 50% / 0.35);
-    --shadow-card: 0 8px 30px -10px hsl(215 50% 25% / 0.12);
-    --shadow-inset: inset 0 1px 0 0 hsl(0 0% 100% / 0.08);
-
-    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    /* Advanced Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(218 75% 10%) 0%, hsl(212 70% 20%) 50%, hsl(162 80% 22%) 100%);
+    --gradient-deep: linear-gradient(160deg, hsl(218 80% 8%) 0%, hsl(215 60% 14%) 50%, hsl(162 70% 16%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(210 50% 99%) 0%, hsl(200 60% 97%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(212 100% 50%) 0%, hsl(162 90% 35%) 100%);
+    --gradient-text-light: linear-gradient(135deg, hsl(195 100% 80%) 0%, hsl(160 85% 70%) 100%);
+    
+    /* Premium Shadows */
+    --shadow-premium: 0 20px 50px -12px rgba(15, 23, 42, 0.08);
+    --shadow-glow: 0 0 50px -10px hsl(160 85% 50% / 0.35);
+    --shadow-glow-blue: 0 0 60px -10px hsl(212 100% 55% / 0.3);
+    
+    --transition-premium: cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
 @layer base {
-  * { @apply border-border; }
+  * { 
+    @apply border-border selection:bg-secondary/20 selection:text-secondary; 
+    transition-timing-function: var(--transition-premium);
+  }
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01", "cv11", "kern";
   }
   h1, h2, h3, h4 {
-    @apply font-display tracking-tight;
-    letter-spacing: -0.02em;
+    @apply font-display tracking-tight text-balance;
+    letter-spacing: -0.04em;
   }
-  ::selection { background: hsl(var(--secondary) / 0.25); }
 }
 
 @layer components {
@@ -95,61 +88,69 @@
     color: transparent;
   }
 
-  /* Subtle blueprint grid */
   .bg-grid {
     background-image:
-      linear-gradient(to right, hsl(215 50% 25% / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(215 50% 25% / 0.05) 1px, transparent 1px);
-    background-size: 56px 56px;
+      linear-gradient(to right, hsl(215 50% 25% / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(215 50% 25% / 0.045) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
-  .bg-grid-dark {
-    background-image:
-      linear-gradient(to right, hsl(195 95% 75% / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(195 95% 75% / 0.06) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-  .bg-mesh {
-    background-image:
-      radial-gradient(at 15% 10%, hsl(212 90% 50% / 0.18) 0px, transparent 50%),
-      radial-gradient(at 85% 0%, hsl(158 80% 48% / 0.18) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, hsl(218 75% 18% / 0.10) 0px, transparent 60%);
-  }
-
+  
   .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/50;
+    @apply bg-white/75 backdrop-blur-2xl border border-white/60 shadow-premium;
   }
+  
   .glass-dark {
-    background: hsl(218 75% 12% / 0.55);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(195 95% 75% / 0.12);
+    background: hsl(218 75% 10% / 0.65);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(210 100% 100% / 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
-  .section { @apply py-28 md:py-36 px-6 md:px-10; }
-  .container-x { @apply max-w-7xl mx-auto; }
+  /* Spacing system */
+  .section-padding { @apply py-32 md:py-48 px-6 md:px-12 lg:px-20; }
+  .container-tight { @apply max-w-6xl mx-auto; }
+  .container-wide { @apply max-w-7xl mx-auto; }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary;
+    @apply inline-flex items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-secondary;
   }
   .eyebrow::before {
     content: "";
-    @apply w-8 h-px bg-secondary inline-block;
+    @apply w-10 h-[1px] bg-secondary/30;
   }
 
-  .gradient-border {
-    position: relative;
-    background: hsl(var(--card));
-    border-radius: var(--radius);
+  .btn-premium {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold transition-all duration-500 active:scale-95 disabled:opacity-50;
   }
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
-    background: var(--gradient-border);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+  
+  .btn-primary {
+    @apply btn-premium bg-primary text-white shadow-premium hover:shadow-glow-blue hover:-translate-y-1;
   }
+  
+  .btn-secondary {
+    @apply btn-premium bg-white border border-border text-primary hover:bg-muted hover:border-primary/20 hover:-translate-y-1;
+  }
+
+  .btn-glow {
+    @apply btn-premium bg-gradient-to-r from-secondary to-secondary-glow text-white shadow-glow hover:shadow-elegant hover:-translate-y-1;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 8s ease-in-out infinite;
 }

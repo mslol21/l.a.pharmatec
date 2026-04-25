@@ -14,7 +14,7 @@ import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
     document.title = "L.A. Pharmatec — Inovação biotech em fármacos | One Health";
-    const desc = "Startup biotech de Ribeirão Preto especializada em P&D de fármacos para saúde humana, animal e ambiental. Microbiologia, parasitologia e One Health.";
+    const desc = "Startup biotech especializada em P&D de fármacos para saúde humana, animal e ambiental. Microbiologia, parasitologia e One Health.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");

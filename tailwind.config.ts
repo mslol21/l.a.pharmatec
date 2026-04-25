@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Sora', 'Inter', 'sans-serif'],
+        display: ['Outfit', 'Sora', 'Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -59,6 +59,7 @@ export default {
       },
       boxShadow: {
         elegant: 'var(--shadow-elegant)',
+        premium: 'var(--shadow-premium)',
         glow: 'var(--shadow-glow)',
         'glow-blue': 'var(--shadow-glow-blue)',
         card: 'var(--shadow-card)',

@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# One Health Lab
 
-TODO: Document your project here
+Projeto de P&D em microbiologia e parasitologia.

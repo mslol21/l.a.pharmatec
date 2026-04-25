@@ -1,5 +1,5 @@
-import leticia from "@/assets/founder-leticia.jpg";
-import amanda from "@/assets/founder-amanda.jpg";
+import leticia from "@/assets/leticia.png";
+import amanda from "@/assets/amanda.png";
 import { GraduationCap, Linkedin } from "lucide-react";
 
 const founders = [
@@ -54,6 +54,16 @@ const Founders = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-16 flex flex-col items-center gap-4">
+          <p className="text-muted-foreground italic">Consultoria especializada diretamente com quem faz a ciência.</p>
+          <a 
+            href="#contato" 
+            className="px-10 py-4 rounded-full bg-primary text-white font-bold shadow-card hover:shadow-elegant transition-all hover:scale-105 active:scale-95"
+          >
+            Agendar reunião técnica
+          </a>
         </div>
       </div>
     </section>
