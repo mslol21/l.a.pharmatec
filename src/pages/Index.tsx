@@ -7,7 +7,6 @@ import Founders from "@/components/site/Founders";
 import OneHealth from "@/components/site/OneHealth";
 import Services from "@/components/site/Services";
 import Research from "@/components/site/Research";
-import CTA from "@/components/site/CTA";
 import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
 import WhatsAppButton from "@/components/site/WhatsAppButton";
@@ -37,7 +36,6 @@ const Index = () => {
       <OneHealth />
       <Services />
       <Research />
-      <CTA />
       <Contact />
       <Footer />
       <WhatsAppButton />
