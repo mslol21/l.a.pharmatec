@@ -32,10 +32,10 @@ const Index = () => {
       <TargetAudience />
       <About />
       <ScientificAuthority />
-      <Founders />
-      <OneHealth />
       <Services />
       <Research />
+      <Founders />
+      <OneHealth />
       <Contact />
       <Footer />
       <WhatsAppButton />

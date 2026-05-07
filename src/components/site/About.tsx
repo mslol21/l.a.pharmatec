@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="sobre" className="section-padding relative bg-white overflow-hidden">
+    <section id="sobre" className="section-padding relative bg-gradient-to-b from-white to-primary/5 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid opacity-[0.4]" />
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-[0.2]" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/5 to-transparent pointer-events-none" />
 
       <div className="container-wide relative">
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-32 items-center">
@@ -77,10 +77,10 @@ const About = () => {
             className="space-y-12"
           >
             <div className="space-y-6">
-              <div className="eyebrow">Quem Somos</div>
+              <div className="eyebrow">Sobre a L.A. Pharmatec</div>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary leading-[1.05] tracking-tighter">
-                História e <br />
-                <span className="text-gradient">Objetivos</span>.
+                Ciência e <br />
+                <span className="text-gradient">Inovação.</span>
               </h2>
             </div>
 
@@ -88,23 +88,23 @@ const About = () => {
               {[
                 { 
                   icon: ShieldCheck, 
-                  title: "História", 
-                  desc: "Uma startup com ampla experiência em Pesquisa e Desenvolvimento (P&D) no setor de desenvolvimento de novos fármacos, principalmente nas áreas de microbiologia e parasitologia.",
+                  title: "Nossa História", 
+                  desc: "Somos uma startup com ampla experiência em Pesquisa e Desenvolvimento (P&D) voltada ao desenvolvimento de novos fármacos, atuando de forma pioneira nas áreas de microbiologia e parasitologia.",
                   color: "bg-primary/10 text-primary"
                 },
                 { 
                   icon: Leaf, 
-                  title: "Objetivos", 
-                  desc: "Atua na conversão do conhecimento científico em soluções terapêuticas para doenças infecciosas e/ou inflamatórias compreendidas na interconexão humano-animal-meio ambiente (conceito One Health).",
-                  color: "bg-emerald-50 text-emerald-600"
+                  title: "Missão e Objetivos", 
+                  desc: "Atuamos na conversão direta do conhecimento científico em soluções terapêuticas inovadoras para doenças infecciosas e inflamatórias, sempre fundamentados na interconexão humano-animal-meio ambiente através do conceito One Health.",
+                  color: "bg-secondary/10 text-secondary"
                 }
               ].map((item, i) => (
-                <div key={i} className="group flex gap-6 p-8 rounded-[2.5rem] bg-white border border-border/50 hover:shadow-premium hover:-translate-y-1 transition-all duration-500">
-                  <div className={`w-16 h-16 rounded-2xl ${item.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
+                <div key={i} className="group flex gap-6 p-10 rounded-[2.5rem] bg-white border border-white/60 shadow-premium hover:shadow-glow-blue hover:-translate-y-2 transition-all duration-700">
+                  <div className={`w-16 h-16 rounded-2xl ${item.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-sm`}>
                     <item.icon className="w-7 h-7" />
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="font-display font-extrabold text-xl text-primary">{item.title}</h3>
+                  <div className="space-y-3">
+                    <h3 className="font-display font-extrabold text-2xl text-primary">{item.title}</h3>
                     <p className="text-muted-foreground text-base leading-relaxed font-light">{item.desc}</p>
                   </div>
                 </div>
