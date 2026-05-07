@@ -10,6 +10,7 @@ const founders = [
     title: "Doutora em Biotecnologia",
     specialty: "Especialista em P&D de fármacos e microbiologia avançada.",
     img: leticia,
+    linkedin: "https://br.linkedin.com/in/let%C3%ADcia-de-almeida-83a620215",
   },
   {
     name: "Amanda Ap. Seribelli",
@@ -17,6 +18,7 @@ const founders = [
     title: "Doutora em Ciências",
     specialty: "Expert em mecanismos moleculares e segurança biológica.",
     img: amanda,
+    linkedin: "https://br.linkedin.com/in/amanda-aparecida-seribelli-810890167",
   },
 ];
 
@@ -101,7 +103,7 @@ const Founders = () => {
 
                 <div className="pt-4 flex items-center justify-between border-t border-border/40">
                   <a 
-                    href="https://linkedin.com" 
+                    href={f.linkedin} 
                     target="_blank" 
                     rel="noreferrer"
                     className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
