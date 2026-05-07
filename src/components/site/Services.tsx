@@ -27,13 +27,13 @@ const ServiceCard = ({ icon: Icon, title, description, includes, image, highligh
   >
     {/* Background Image for Highlighted Cards */}
     {image && (
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-primary/40">
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+          className="w-full h-full object-cover opacity-40 transition-transform duration-700 group-hover:scale-110" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/20" />
       </div>
     )}
 
