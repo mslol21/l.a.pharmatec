@@ -13,9 +13,8 @@ const Footer = () => (
         {/* Brand Section */}
         <div className="space-y-10">
           <div className="flex items-center gap-5">
-            <div className="relative w-16 h-16 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-glow-blue border border-white/10 overflow-hidden">
-              <div className="absolute inset-0 bg-white/10 animate-pulse" />
-              <Dna className="w-8 h-8 text-white relative z-10" />
+            <div className="relative w-20 h-20 flex items-center justify-center">
+              <img src="/logo.png" alt="L.A. Pharmatec Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="font-display font-extrabold text-white text-3xl tracking-tighter">L.A. Pharmatec</div>
@@ -28,9 +27,8 @@ const Footer = () => (
           
           <div className="flex gap-4">
             {[
-              { icon: Linkedin, href: "https://linkedin.com" },
-              { icon: Mail, href: "mailto:contato@lapharmatec.com.br" },
-              { icon: Globe, href: "#" },
+              { icon: Linkedin, href: "https://linkedin.com/in/l-a-pharmatec-823a57321" },
+              { icon: Mail, href: "mailto:diretoria.lapharmatec@gmail.com" },
             ].map((social, i) => (
               <a 
                 key={i}
@@ -49,7 +47,7 @@ const Footer = () => (
             <div className="text-[11px] uppercase font-bold tracking-[0.4em] text-secondary">A Empresa</div>
             <ul className="space-y-5 text-[15px] font-medium">
               <li><a href="#sobre" className="hover:text-white transition-all duration-300 flex items-center gap-2 group">Sobre Nós</a></li>
-              <li><a href="#fundadoras" className="hover:text-white transition-all duration-300 flex items-center gap-2 group">Liderança</a></li>
+              <li><a href="#fundadoras" className="hover:text-white transition-all duration-300 flex items-center gap-2 group">Quem Somos</a></li>
               <li><a href="#one-health" className="hover:text-white transition-all duration-300 flex items-center gap-2 group">One Health</a></li>
             </ul>
           </div>
@@ -72,8 +70,9 @@ const Footer = () => (
                 <MapPin className="w-5 h-5 text-secondary shrink-0" />
                 <div className="text-[15px] leading-relaxed">
                   <span className="text-white block font-bold mb-1">Ribeirão Preto · SP</span>
-                  Supera Parque Tecnológico <br />
-                  Inovação & Biotecnologia
+                  Hub de Inovação: Supera Parque Tecnológico <br />
+                  Av. Dra. Nadir Águiar, 1805, Sala 204 <br />
+                  Prédio 1, Jardim Dr. Paulo Gomes Romeo
                 </div>
               </div>
               <a 

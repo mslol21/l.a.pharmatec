@@ -30,7 +30,7 @@ const Research = () => {
               className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight tracking-tighter"
             >
               P&D que define o <br />
-              <span className="text-gradient-light">futuro da saúde</span>.
+              <span className="text-gradient-light">futuro da saúde animal</span>.
             </motion.h2>
           </div>
           <motion.p 
@@ -62,12 +62,12 @@ const Research = () => {
                 </div>
                 
                 <h3 className="font-display text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                  Tratamento disruptivo para <br />
+                  Tratamento Inovador para <br />
                   <span className="text-secondary-glow">Leishmaniose Visceral Canina</span>
                 </h3>
                 
                 <p className="text-white/70 text-lg md:text-xl leading-relaxed font-light max-w-2xl">
-                  Estamos desenvolvendo um novo fármaco antiparasitário focado em eliminar a carga parasitária com toxicidade mínima. Atualmente em fase de <span className="text-white font-bold">validação in vivo</span> com resultados promissores.
+                  Atuando no desenvolvimento de um fármaco antiparasitário focado em eliminar a carga parasitária com toxicidade mínima. Atualmente em fase de <span className="text-white font-bold">validação in vitro</span> com resultados promissores.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-6 pt-6">
@@ -77,7 +77,7 @@ const Research = () => {
                     </div>
                     <div>
                       <div className="text-[10px] uppercase font-bold text-white/40 tracking-widest">Status Atual</div>
-                      <div className="text-white font-bold">Fase Pré-Clínica II</div>
+                      <div className="text-white font-bold">Fase Pré-clínica</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/10">
@@ -86,7 +86,7 @@ const Research = () => {
                     </div>
                     <div>
                       <div className="text-[10px] uppercase font-bold text-white/40 tracking-widest">Inovação</div>
-                      <div className="text-white font-bold">Nova Molécula Ativa</div>
+                      <div className="text-white font-bold text-xs leading-tight">Combinação de moléculas com efeitos imunomodulador e anti-Leishmania</div>
                     </div>
                   </div>
                 </div>
@@ -110,80 +110,7 @@ const Research = () => {
           </div>
         </motion.div>
 
-        {/* ACTIVE & FUTURE PIPELINES SEPARATION */}
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Active Development */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h4 className="text-2xl font-bold text-white">Desenvolvimento Ativo</h4>
-              <div className="h-px flex-1 bg-white/10" />
-            </div>
-            
-            <div className="grid gap-6">
-              {[
-                {
-                  icon: Sprout,
-                  title: "Bio-Insumos Agro",
-                  desc: "Desenvolvimento de bioprodutos para proteção de cultivos contra a Murcha da Cana.",
-                  tag: "Agritech"
-                },
-                {
-                  icon: Beaker,
-                  title: "Screening Microbiológico",
-                  desc: "Plataforma de alta performance para identificação de patógenos emergentes.",
-                  tag: "Metodologia"
-                }
-              ].map((proj) => (
-                <div key={proj.title} className="group p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary-glow">
-                      <proj.icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">{proj.tag}</span>
-                  </div>
-                  <h5 className="text-xl font-bold text-white mb-2">{proj.title}</h5>
-                  <p className="text-white/50 text-sm leading-relaxed">{proj.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Future Pipelines (Ideation) */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h4 className="text-2xl font-bold text-white/50">Pipelines em Ideação</h4>
-              <div className="h-px flex-1 bg-white/5" />
-            </div>
-
-            <div className="grid gap-6">
-              {[
-                {
-                  icon: Search,
-                  title: "Inteligência de Biofilmes",
-                  desc: "Pesquisa exploratória em sistemas inteligentes para controle de biofilmes bacterianos.",
-                  tag: "Exploration"
-                },
-                {
-                  icon: FlaskConical,
-                  title: "Drug Delivery Avançado",
-                  desc: "Novos carreadores lipídicos para fármacos de baixa solubilidade.",
-                  tag: "Discovery"
-                }
-              ].map((proj) => (
-                <div key={proj.title} className="group p-8 rounded-[2.5rem] bg-transparent border border-white/5 opacity-60 hover:opacity-100 hover:border-white/20 transition-all">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/40">
-                      <proj.icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/20">{proj.tag}</span>
-                  </div>
-                  <h5 className="text-xl font-bold text-white/80 mb-2">{proj.title}</h5>
-                  <p className="text-white/40 text-sm leading-relaxed">{proj.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         <div className="mt-20 text-center">
           <a href="#contato" className="inline-flex items-center gap-3 text-secondary-glow font-bold hover:gap-5 transition-all">

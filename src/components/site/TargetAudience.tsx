@@ -10,13 +10,13 @@ const audiences = [
   },
   {
     title: "Empresas de cosméticos",
-    desc: "Desenvolvimento de formulações, testes microbiológicos e eficácia dermatológica.",
+    desc: "Realização de testes microbiológicos, fototoxicidade e mentoria científica.",
     icon: Droplets,
     color: "bg-emerald-500/10 text-emerald-500",
   },
   {
     title: "Startups biotech",
-    desc: "Aceleração de pipelines, infraestrutura laboratorial e mentoria científica.",
+    desc: "Cultivo e experimentação com bactérias, fungos e parasitos. Ensaios de morte celular e ativação do sistema imune inato.",
     icon: Rocket,
     color: "bg-purple-500/10 text-purple-500",
   },

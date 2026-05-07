@@ -137,11 +137,11 @@ const Hero = () => {
                 <div className="flex gap-4">
                   <div className="flex items-center gap-2">
                     <Dna className="w-4 h-4 text-secondary-glow" />
-                    <span className="text-xs text-white/80 font-medium">Genômica</span>
+                    <span className="text-xs text-white/80 font-medium">Cultura de células</span>
                   </div>
                   <div className="flex items-center gap-2 border-l border-white/10 pl-4">
                     <Microscope className="w-4 h-4 text-secondary-glow" />
-                    <span className="text-xs text-white/80 font-medium">Parasitologia</span>
+                    <span className="text-xs text-white/80 font-medium">Microbiologia/Parasitologia</span>
                   </div>
                 </div>
               </div>

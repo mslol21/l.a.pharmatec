@@ -77,34 +77,25 @@ const About = () => {
             className="space-y-12"
           >
             <div className="space-y-6">
-              <div className="eyebrow">Sobre a Startup</div>
+              <div className="eyebrow">Quem Somos</div>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary leading-[1.05] tracking-tighter">
-                Ciência aplicada a <br />
-                <span className="text-gradient">soluções globais</span>.
+                História e <br />
+                <span className="text-gradient">Objetivos</span>.
               </h2>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                Somos uma startup de biotecnologia dedicada a transformar a pesquisa de base em ativos farmacêuticos de alto valor agregado.
-              </p>
             </div>
 
             <div className="space-y-6">
               {[
                 { 
-                  icon: Zap, 
-                  title: "P&D de Alto Impacto", 
-                  desc: "Desenvolvemos novos fármacos para desafios de saúde humana e veterinária.",
-                  color: "bg-secondary/10 text-secondary"
-                },
-                { 
                   icon: ShieldCheck, 
-                  title: "Excelência Científica", 
-                  desc: "Liderada por doutores com vasta experiência em microbiologia e farmacologia.",
+                  title: "História", 
+                  desc: "Uma startup com ampla experiência em Pesquisa e Desenvolvimento (P&D) no setor de desenvolvimento de novos fármacos, principalmente nas áreas de microbiologia e parasitologia.",
                   color: "bg-primary/10 text-primary"
                 },
                 { 
                   icon: Leaf, 
-                  title: "One Health Vision", 
-                  desc: "Soluções integradas que respeitam o equilíbrio entre humanos e ecossistemas.",
+                  title: "Objetivos", 
+                  desc: "Atua na conversão do conhecimento científico em soluções terapêuticas para doenças infecciosas e/ou inflamatórias compreendidas na interconexão humano-animal-meio ambiente (conceito One Health).",
                   color: "bg-emerald-50 text-emerald-600"
                 }
               ].map((item, i) => (

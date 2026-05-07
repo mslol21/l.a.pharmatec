@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
-  { href: "#fundadoras", label: "Liderança" },
-  { href: "#one-health", label: "One Health" },
   { href: "#servicos", label: "Serviços" },
   { href: "#pesquisa", label: "P&D" },
+  { href: "#fundadoras", label: "Quem Somos" },
+  { href: "#one-health", label: "One Health" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -35,9 +35,8 @@ const Navbar = () => {
         >
           {/* LOGO */}
           <a href="#home" className="flex items-center gap-4 group">
-            <div className="relative w-12 h-12 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-glow-blue overflow-hidden transition-transform duration-700 group-hover:scale-110">
-              <div className="absolute inset-0 bg-white/20 animate-pulse" />
-              <Dna className="w-6 h-6 text-white relative z-10" />
+            <div className="relative w-16 h-16 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+              <img src="/logo.png" alt="L.A. Pharmatec Logo" className="w-full h-full object-contain drop-shadow-md" />
             </div>
             <div className="leading-tight hidden sm:block">
               <div className="font-display font-extrabold text-primary text-[19px] tracking-tighter">L.A. Pharmatec</div>

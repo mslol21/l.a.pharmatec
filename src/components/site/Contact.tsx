@@ -30,7 +30,7 @@ const Contact = () => {
             <div className="space-y-4">
               <motion.a 
                 whileHover={{ x: 10, transition: { duration: 0.3 } }}
-                href="mailto:contato@lapharmatec.com.br" 
+                href="mailto:diretoria.lapharmatec@gmail.com" 
                 className="flex items-center gap-6 p-6 rounded-[2rem] bg-white border border-border/60 hover:bg-muted/30 hover:border-primary/20 hover:shadow-premium transition-all group"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary/5 group-hover:bg-primary border border-primary/10 flex items-center justify-center shrink-0 transition-all duration-500">
@@ -38,13 +38,13 @@ const Contact = () => {
                 </div>
                 <div className="min-w-0">
                   <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1">E-mail Corporativo</div>
-                  <div className="font-display font-bold text-lg text-primary truncate">contato@lapharmatec.com.br</div>
+                  <div className="font-display font-bold text-lg text-primary truncate">diretoria.lapharmatec@gmail.com</div>
                 </div>
               </motion.a>
 
               <motion.a 
                 whileHover={{ x: 10, transition: { duration: 0.3 } }}
-                href="https://www.linkedin.com" 
+                href="https://linkedin.com/in/l-a-pharmatec-823a57321" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="flex items-center gap-6 p-6 rounded-[2rem] bg-white border border-border/60 hover:bg-muted/30 hover:border-primary/20 hover:shadow-premium transition-all group"
@@ -52,9 +52,9 @@ const Contact = () => {
                 <div className="w-14 h-14 rounded-2xl bg-primary/5 group-hover:bg-[#0077b5] border border-primary/10 flex items-center justify-center shrink-0 transition-all duration-500">
                   <Linkedin className="w-6 h-6 text-primary group-hover:text-white" strokeWidth={1.5} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1">LinkedIn Lab</div>
-                  <div className="font-display font-bold text-lg text-primary">/company/la-pharmatec</div>
+                  <div className="font-display font-bold text-lg text-primary truncate">/in/l-a-pharmatec</div>
                 </div>
               </motion.a>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold mb-1">Hub de Inovação</div>
                   <div className="font-display font-bold text-lg text-primary">Supera Parque Tecnológico</div>
-                  <div className="text-sm text-muted-foreground">Ribeirão Preto, SP · Brasil</div>
+                  <div className="text-sm text-muted-foreground leading-snug mt-1">Av. Dra. Nadir Águiar, 1805, Sala 204 <br/> Prédio 1, Jardim Dr. Paulo Gomes Romeo <br/> Ribeirão Preto - SP</div>
                 </div>
               </div>
             </div>

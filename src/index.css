@@ -15,21 +15,21 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 60% 10%;
 
-    /* Deep navy brand - Trust & Authority */
-    --primary: 218 85% 12%;
+    /* Deep navy brand - Trust & Authority (from logo) */
+    --primary: 215 100% 22%;
     --primary-foreground: 210 40% 99%;
     --primary-glow: 212 100% 55%;
-    --primary-soft: 215 50% 25%;
+    --primary-soft: 215 100% 15%;
 
-    /* Emerald biotech green - Innovation & Growth */
-    --secondary: 162 90% 28%;
+    /* Light Blue - Innovation & Growth (from logo) */
+    --secondary: 212 95% 30%;
     --secondary-foreground: 210 40% 99%;
-    --secondary-glow: 158 95% 45%;
+    --secondary-glow: 212 95% 50%;
 
     --muted: 210 40% 96.5%;
     --muted-foreground: 215 15% 45%;
 
-    --accent: 195 100% 45%;
+    --accent: 212 100% 45%;
     --accent-foreground: 215 60% 10%;
 
     --destructive: 0 84% 60%;
@@ -37,21 +37,21 @@
 
     --border: 215 25% 92%;
     --input: 215 25% 92%;
-    --ring: 218 85% 12%;
+    --ring: 215 100% 22%;
 
     --radius: 2rem;
 
     /* Advanced Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(218 85% 10%) 0%, hsl(212 70% 18%) 50%, hsl(162 90% 20%) 100%);
-    --gradient-deep: linear-gradient(160deg, hsl(218 90% 8%) 0%, hsl(215 65% 12%) 50%, hsl(162 85% 14%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 100% 15%) 0%, hsl(215 100% 22%) 50%, hsl(212 95% 30%) 100%);
+    --gradient-deep: linear-gradient(160deg, hsl(215 100% 10%) 0%, hsl(215 100% 15%) 50%, hsl(215 100% 22%) 100%);
     --gradient-soft: linear-gradient(180deg, hsl(210 50% 99%) 0%, hsl(200 60% 97%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(212 100% 50%) 0%, hsl(162 90% 35%) 100%);
-    --gradient-text-light: linear-gradient(135deg, hsl(195 100% 85%) 0%, hsl(158 95% 75%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(212 100% 50%) 0%, hsl(212 95% 35%) 100%);
+    --gradient-text-light: linear-gradient(135deg, hsl(212 100% 85%) 0%, hsl(212 95% 75%) 100%);
     
     /* Premium Shadows */
     --shadow-premium: 0 25px 60px -15px rgba(15, 23, 42, 0.08);
-    --shadow-glow: 0 0 50px -10px hsl(158 95% 45% / 0.35);
+    --shadow-glow: 0 0 50px -10px hsl(212 95% 45% / 0.35);
     --shadow-glow-blue: 0 0 60px -10px hsl(212 100% 55% / 0.3);
     
     --transition-premium: cubic-bezier(0.16, 1, 0.3, 1);

@@ -8,13 +8,14 @@ interface ServiceCardProps {
   icon: any;
   title: string;
   description: string;
+  includes?: string[];
   image?: string;
   highlighted?: boolean;
   className?: string;
   index: number;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, image, highlighted, className, index }: ServiceCardProps) => (
+const ServiceCard = ({ icon: Icon, title, description, includes, image, highlighted, className, index }: ServiceCardProps) => (
   <motion.article
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +33,7 @@ const ServiceCard = ({ icon: Icon, title, description, image, highlighted, class
           alt={title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
       </div>
     )}
 
@@ -49,12 +50,22 @@ const ServiceCard = ({ icon: Icon, title, description, image, highlighted, class
       </div>
 
       <div className="space-y-3">
-        <h3 className={`font-display font-bold leading-tight ${highlighted ? "text-3xl text-white" : "text-xl text-white"}`}>
+        <h3 className={`font-display font-bold leading-tight ${highlighted ? "text-2xl text-white" : "text-xl text-white"}`}>
           {title}
         </h3>
-        <p className={`text-sm leading-relaxed ${highlighted ? "text-white/70" : "text-white/60"}`}>
+        <p className={`text-sm leading-relaxed ${highlighted ? "text-white/80" : "text-white/60"}`}>
           {description}
         </p>
+        {includes && includes.length > 0 && (
+          <ul className={`mt-4 space-y-2 text-sm font-medium ${highlighted ? "text-white/90" : "text-white/70"}`}>
+            {includes.map((item, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="text-secondary-glow mt-0.5">•</span>
+                <span className="leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -70,40 +81,44 @@ const ServiceCard = ({ icon: Icon, title, description, image, highlighted, class
 const services = [
   {
     icon: FlaskConical,
-    title: "P&D de Fármacos",
-    description: "Desenvolvimento completo de novas moléculas, da descoberta ao protótipo final.",
+    title: "Ensaios celulares para avaliação de toxicidade e segurança",
+    description: "Testes in vitro para determinar o impacto de compostos sobre a viabilidade e função celular",
+    includes: [
+      "Viabilidade celular/Citotoxicidade (LDH, fibroblastos 3T3, macrófagos primários, entre outras)",
+      "Fototoxicidade (fibroblastos 3T3)",
+      "Triagem de segurança de compostos"
+    ],
     image: labImg,
-    highlighted: true,
-    className: "lg:col-span-2"
-  },
-  {
-    icon: ShieldCheck,
-    title: "Saúde Integrada",
-    description: "Soluções estratégicas sob o paradigma One Health para um futuro sustentável.",
-    image: healthImg,
     highlighted: true,
     className: "lg:col-span-1"
   },
   {
-    icon: Beaker,
-    title: "Ensaios de Segurança",
-    description: "Testes pré-clínicos avançados e toxicidade in vitro com rigor internacional.",
+    icon: Microscope,
+    title: "Ensaios microbiológicos e parasitológicos para avaliação de eficácia e segurança",
+    description: "Análise da atividade de compostos e caracterização de microrganismos e parasitas",
+    includes: [
+      "Atividade antimicrobiana (MIC, disco difusão)",
+      "Detecção de limites microbiológicos (cosméticos, fármacos, alimentos)",
+      "Atividade antiparasitária (promastigota de Leishmania, epimastigota de T. cruzi)",
+      "Detecção e caracterização de bactérias aeróbias e anaeróbias, fungos",
+      "Triagem de eficácia de compostos"
+    ],
     image: cellsImg,
     highlighted: true,
     className: "lg:col-span-1"
   },
   {
-    icon: Lightbulb,
-    title: "Consultoria Estratégica",
-    description: "Apoio na captação de recursos e estruturação de projetos científicos de alto valor.",
-    highlighted: false,
-    className: "lg:col-span-1"
-  },
-  {
-    icon: Microscope,
-    title: "Análises Laboratoriais",
-    description: "Controle microbiológico e bioprodutos seguindo padrões internacionais de qualidade.",
-    highlighted: false,
+    icon: ShieldCheck,
+    title: "Mapeamento de respostas imunes em modelos inflamatórios e infecciosos",
+    description: "Caracterização imunológica completa por análise de citocinas, expressão gênica e ensaios funcionais",
+    includes: [
+      "Perfil de citocinas e mediadores inflamatórios (ELISA)",
+      "Análise de vias de sinalização e expressão gênica (Western Blot, RT-qPCR)",
+      "Ensaios funcionais (Burst oxidativo – ROS, fagocitose)",
+      "Ensaios de morte celular (LDH, Piroptose, caspase-1, gasdermina D)"
+    ],
+    image: healthImg,
+    highlighted: true,
     className: "lg:col-span-1"
   }
 ];
@@ -144,7 +159,7 @@ const Services = () => (
           transition={{ delay: 0.1 }}
           className="text-lg text-white/60 leading-relaxed font-light"
         >
-          Traduzimos ciência complexa em resultados comerciais tangíveis. Nossos serviços são modulares e focados na agilidade regulatória e eficácia comprovada.
+          Plataformas integradas para análise de respostas celulares, avaliação de toxicidade e estudos microbiológicos e parasitológicos
         </motion.p>
       </div>
 
