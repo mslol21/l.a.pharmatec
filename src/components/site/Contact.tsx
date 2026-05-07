@@ -19,8 +19,8 @@ const Contact = () => {
             <div className="space-y-6">
               <span className="eyebrow">Canais de Atendimento</span>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.05]">
-                Vamos iniciar uma <br />
-                <span className="text-gradient">colaboração</span>?
+                Precisa de suporte <br />
+                <span className="text-gradient">científico ou ensaios laboratoriais</span>?
               </h2>
               <p className="text-muted-foreground text-xl leading-relaxed font-light max-w-md">
                 Nossa equipe técnica está disponível para responder suas dúvidas sobre ensaios, projetos de P&D e consultoria.
@@ -78,7 +78,7 @@ const Contact = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="relative"
           >
-            <form className="relative p-10 md:p-12 rounded-[3.5rem] bg-gradient-deep text-white shadow-elegant overflow-hidden" onSubmit={(e) => e.preventDefault()}>
+            <form action="https://formsubmit.co/diretoria.lapharmatec@gmail.com" method="POST" className="relative p-10 md:p-12 rounded-[3.5rem] bg-gradient-deep text-white shadow-elegant overflow-hidden">
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-secondary-glow/20 rounded-full blur-[120px] pointer-events-none" />
               <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
               
@@ -91,21 +91,23 @@ const Contact = () => {
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 px-2">Nome completo</label>
-                    <input className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all" placeholder="Seu nome ou empresa" />
+                    <input type="text" name="name" required className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all" placeholder="Seu nome ou empresa" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 px-2">E-mail corporativo</label>
-                    <input type="email" className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all" placeholder="voce@empresa.com.br" />
+                    <input type="email" name="email" required className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all" placeholder="voce@empresa.com.br" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 px-2">Sua Mensagem</label>
-                    <textarea rows={4} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all resize-none" placeholder="Descreva brevemente como podemos colaborar..." />
+                    <textarea name="message" required rows={4} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all resize-none" placeholder="Descreva brevemente como podemos colaborar..." />
+                    <input type="hidden" name="_next" value={window.location.href} />
+                    <input type="hidden" name="_captcha" value="false" />
                   </div>
                 </div>
 
-                <button className="w-full flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-secondary-glow text-primary font-bold text-lg shadow-glow hover:shadow-elegant transition-all hover:-translate-y-1 active:scale-95">
+                <button type="submit" className="w-full flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-secondary-glow text-primary font-bold text-lg shadow-glow hover:shadow-elegant transition-all hover:-translate-y-1 active:scale-95">
                   <Send className="w-5 h-5" />
-                  Enviar Solicitação
+                  Entrar em contato
                 </button>
               </div>
             </form>
