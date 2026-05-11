@@ -118,7 +118,7 @@
   }
 
   /* Spacing system */
-  .section-padding { @apply py-32 md:py-56 px-6 md:px-12 lg:px-20; }
+  .section-padding { @apply py-20 md:py-32 lg:py-48 px-6 md:px-12 lg:px-20; }
   .container-tight { @apply max-w-6xl mx-auto; }
   .container-wide { @apply max-w-[1400px] mx-auto; }
 

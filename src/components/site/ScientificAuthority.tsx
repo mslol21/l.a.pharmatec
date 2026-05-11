@@ -1,4 +1,4 @@
-import { Award, Microscope, BookOpen, Building2, FlaskConical, GraduationCap } from "lucide-react";
+import { BookOpen, Building2, FlaskConical, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const credentials = [
@@ -10,12 +10,7 @@ const credentials = [
   {
     icon: Building2,
     title: "Supera Parque",
-    desc: "Incubada em um dos polos tecnológicos mais avançados do Brasil, garantindo infraestrutura de ponta.",
-  },
-  {
-    icon: Award,
-    title: "P&D de Excelência",
-    desc: "Metodologias rigorosas validadas por padrões internacionais de biotecnologia e farmacologia.",
+    desc: "Incubada em um dos polos tecnológicos mais avançados do Brasil, focada em inovação e pesquisa científica.",
   },
 ];
 

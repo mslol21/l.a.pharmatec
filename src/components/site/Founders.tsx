@@ -1,5 +1,3 @@
-import leticia from "@/assets/leticia.png";
-import amanda from "@/assets/amanda.png";
 import { GraduationCap, Linkedin, Award, BookOpen, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -9,7 +7,6 @@ const founders = [
     role: "Biotecnologista",
     title: "Doutora em Biotecnologia",
     specialty: "Especialista em P&D de fármacos e microbiologia avançada.",
-    img: leticia,
     linkedin: "https://br.linkedin.com/in/let%C3%ADcia-de-almeida-83a620215",
   },
   {
@@ -17,7 +14,6 @@ const founders = [
     role: "Biomédica",
     title: "Doutora em Ciências",
     specialty: "Expert em mecanismos moleculares e segurança biológica.",
-    img: amanda,
     linkedin: "https://br.linkedin.com/in/amanda-aparecida-seribelli-810890167",
   },
 ];
@@ -69,17 +65,8 @@ const Founders = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="group relative flex flex-col lg:flex-row items-center gap-8 p-8 rounded-[3rem] bg-white border border-border/60 shadow-premium hover:shadow-2xl transition-all duration-500"
+              className="group relative flex flex-col items-start gap-8 p-10 rounded-[3rem] bg-white border border-border/60 shadow-premium hover:shadow-2xl transition-all duration-500"
             >
-              <div className="relative w-full lg:w-48 xl:w-64 aspect-square rounded-[2.5rem] overflow-hidden shrink-0">
-                <img 
-                  src={f.img} 
-                  alt={f.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              
               <div className="flex-1 space-y-4">
                 <div className="space-y-1">
                   <h3 className="font-display text-2xl lg:text-3xl font-extrabold text-primary">{f.name}</h3>
@@ -143,4 +130,3 @@ const Founders = () => {
 };
 
 export default Founders;
-

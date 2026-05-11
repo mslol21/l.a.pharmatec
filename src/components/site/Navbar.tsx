@@ -35,8 +35,8 @@ const Navbar = () => {
         >
           {/* LOGO */}
           <a href="#home" className="flex items-center gap-4 group">
-            <div className="relative w-16 h-16 flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
-              <img src="/logo.png" alt="L.A. Pharmatec Logo" className="w-full h-full object-contain drop-shadow-md" />
+            <div className="relative w-20 h-20 flex items-center justify-center transition-transform duration-700 group-hover:scale-105">
+              <img src="/logo.png" alt="L.A. Pharmatec Logo" className="w-full h-full object-contain" />
             </div>
             <div className="leading-tight hidden sm:block">
               <div className="font-display font-extrabold text-primary text-[19px] tracking-tighter">L.A. Pharmatec</div>

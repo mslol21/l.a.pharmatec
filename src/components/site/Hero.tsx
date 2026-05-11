@@ -1,5 +1,5 @@
 import heroScientific from "@/assets/hero-scientific.png";
-import { ArrowRight, Sparkles, FlaskConical, Microscope, Dna, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, Microscope, Dna } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
@@ -44,18 +44,18 @@ const Hero = () => {
             </motion.div>
 
             <h1 className="font-display font-extrabold text-white leading-[1.1] tracking-tight text-4xl md:text-5xl xl:text-6xl mb-8">
-              Desenvolvemos e validamos <br />
-              <span className="text-gradient-light">soluções científicas</span> para indústrias farmacêuticas, cosméticas e biotecnológicas
+              Inovação científica para <br />
+              <span className="text-gradient-light">saúde humana, animal e ambiental</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl font-light">
-              Especialistas em <span className="text-white font-medium">P&D, microbiologia e ensaios laboratoriais</span> para acelerar o desenvolvimento do seu produto com segurança e precisão técnica.
+              Especialistas em <span className="text-white font-medium">microbiologia, parasitologia e desenvolvimento de soluções terapêuticas</span> dentro do conceito One Health.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
               <a
                 href="#contato"
-                className="group relative flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-secondary text-white font-bold transition-all duration-500 hover:bg-secondary-glow hover:shadow-glow hover:-translate-y-1 active:translate-y-0"
+                className="w-full sm:w-auto group relative flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-secondary text-white font-bold transition-all duration-500 hover:bg-secondary-glow hover:shadow-glow hover:-translate-y-1 active:translate-y-0"
               >
                 Solicitar consultoria
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -64,42 +64,13 @@ const Hero = () => {
                 href="https://wa.me/5516999999999"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-bold transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 active:scale-95"
               >
                 Falar com especialista
               </a>
             </div>
 
-            {/* Scientific Credentials */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-white/5">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-white/5 text-secondary-glow">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-bold leading-tight">Certificação</div>
-                  <div className="text-sm text-white/80 font-semibold">Padrão OECD</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-white/5 text-secondary-glow">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-bold leading-tight">Metodologia</div>
-                  <div className="text-sm text-white/80 font-semibold">Agilidade em P&D</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 col-span-2 sm:col-span-1">
-                <div className="p-2 rounded-lg bg-white/5 text-secondary-glow">
-                  <FlaskConical className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-wider text-white/40 font-bold leading-tight">Infraestrutura</div>
-                  <div className="text-sm text-white/80 font-semibold">Lab High-Tech</div>
-                </div>
-              </div>
-            </div>
+
           </motion.div>
 
           {/* RIGHT: Visual Impact */}

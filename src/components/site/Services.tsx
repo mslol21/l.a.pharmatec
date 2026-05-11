@@ -1,5 +1,6 @@
 import { Beaker, ShieldCheck, Microscope, FlaskConical, Lightbulb, Zap, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import labImg from "@/assets/lab.png";
 import healthImg from "@/assets/one-health.png";
 import cellsImg from "@/assets/cells.png";
@@ -15,68 +16,87 @@ interface ServiceCardProps {
   index: number;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, includes, image, highlighted, className, index }: ServiceCardProps) => (
-  <motion.article
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay: index * 0.1 }}
-    className={`group relative rounded-[2.5rem] overflow-hidden border border-white/10 transition-all duration-500 hover:shadow-premium group ${className} ${
-      highlighted ? "min-h-[400px]" : "min-h-[300px]"
-    }`}
-  >
-    {/* Background Image for Highlighted Cards */}
-    {image && (
-      <div className="absolute inset-0 bg-primary/40">
-        <img 
-          src={image} 
-          alt={title} 
-          className="w-full h-full object-cover opacity-40 transition-transform duration-700 group-hover:scale-110" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/20" />
-      </div>
-    )}
 
-    {/* Background Pattern for Non-Image Cards */}
-    {!image && (
-      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
-    )}
 
-    <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
-        image ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-primary/20 border border-primary/20 group-hover:bg-primary group-hover:border-transparent"
-      }`}>
-        <Icon className={`w-7 h-7 ${image ? "text-secondary-glow" : "text-primary group-hover:text-white"}`} />
-      </div>
+const ServiceCard = ({ icon: Icon, title, description, includes, image, highlighted, className, index }: ServiceCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-      <div className="space-y-3">
-        <h3 className={`font-display font-bold leading-tight ${highlighted ? "text-2xl text-white" : "text-xl text-white"}`}>
-          {title}
-        </h3>
-        <p className={`text-sm leading-relaxed ${highlighted ? "text-white/80" : "text-white/60"}`}>
-          {description}
-        </p>
-        {includes && includes.length > 0 && (
-          <ul className={`mt-4 space-y-2 text-sm font-medium ${highlighted ? "text-white/90" : "text-white/70"}`}>
-            {includes.map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-secondary-glow mt-0.5">•</span>
-                <span className="leading-snug">{item}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      layout
+      className={`group relative rounded-[2.5rem] overflow-hidden border border-white/10 transition-all duration-500 hover:shadow-premium ${className} ${
+        highlighted ? "min-h-[400px]" : "min-h-[300px]"
+      }`}
+    >
+      {/* Background Image for Highlighted Cards */}
+      {image && (
+        <div className="absolute inset-0 bg-primary/40">
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover opacity-40 transition-transform duration-700 group-hover:scale-110" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/20" />
+        </div>
+      )}
 
-      <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-secondary-glow">
-          Saiba mais
-        </span>
-        <ArrowRight className="w-5 h-5 text-secondary-glow" />
+      {/* Background Pattern for Non-Image Cards */}
+      {!image && (
+        <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
+      )}
+
+      <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
+          image ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-primary/20 border border-primary/20 group-hover:bg-primary group-hover:border-transparent"
+        }`}>
+          <Icon className={`w-7 h-7 ${image ? "text-secondary-glow" : "text-primary group-hover:text-white"}`} />
+        </div>
+
+        <div className="space-y-3">
+          <h3 className={`font-display font-bold leading-tight ${highlighted ? "text-2xl text-white" : "text-xl text-white"}`}>
+            {title}
+          </h3>
+          <p className={`text-sm leading-relaxed ${highlighted ? "text-white/80" : "text-white/60"}`}>
+            {description}
+          </p>
+          
+          <AnimatePresence>
+            {isExpanded && includes && includes.length > 0 && (
+              <motion.ul 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className={`overflow-hidden space-y-2 text-sm font-medium mt-4 ${highlighted ? "text-white/90" : "text-white/70"}`}
+              >
+                {includes.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-secondary-glow mt-0.5">•</span>
+                    <span className="leading-snug">{item}</span>
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <button 
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between w-full text-left focus:outline-none"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-widest text-secondary-glow">
+            {isExpanded ? "Ver menos" : "Saiba mais"}
+          </span>
+          <ArrowRight className={`w-5 h-5 text-secondary-glow transition-transform duration-300 ${isExpanded ? "rotate-90" : ""}`} />
+        </button>
       </div>
-    </div>
-  </motion.article>
-);
+    </motion.article>
+  );
+};
 
 const services = [
   {

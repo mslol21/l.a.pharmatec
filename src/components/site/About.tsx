@@ -30,18 +30,7 @@ const About = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
               
-              {/* Scientific Badge */}
-              <div className="absolute top-8 left-8 p-5 glass rounded-3xl animate-float">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
-                    <Microscope className="w-6 h-6 text-secondary" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">Infraestrutura</div>
-                    <div className="text-primary font-display font-extrabold text-lg leading-none mt-1">High-Tech Lab</div>
-                  </div>
-                </div>
-              </div>
+
             </div>
 
             {/* Credential Card */}
@@ -113,7 +102,7 @@ const About = () => {
 
             <div className="pt-6">
               <a href="#contato" className="btn-primary group">
-                Conhecer Infraestrutura
+                Solicitar Consultoria
                 <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </div>

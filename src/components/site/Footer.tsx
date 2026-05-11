@@ -13,7 +13,7 @@ const Footer = () => (
         {/* Brand Section */}
         <div className="space-y-10">
           <div className="flex items-center gap-5">
-            <div className="relative w-20 h-20 flex items-center justify-center">
+            <div className="relative w-24 h-24 flex items-center justify-center">
               <img src="/logo.png" alt="L.A. Pharmatec Logo" className="w-full h-full object-contain" />
             </div>
             <div>
