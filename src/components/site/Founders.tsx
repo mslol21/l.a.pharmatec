@@ -8,6 +8,7 @@ const founders = [
     title: "Doutora em Biotecnologia",
     specialty: "Especialista em P&D de fármacos e microbiologia avançada.",
     linkedin: "https://br.linkedin.com/in/let%C3%ADcia-de-almeida-83a620215",
+    lattes: "#",
   },
   {
     name: "Amanda Ap. Seribelli",
@@ -15,6 +16,7 @@ const founders = [
     title: "Doutora em Ciências",
     specialty: "Expert em mecanismos moleculares e segurança biológica.",
     linkedin: "https://br.linkedin.com/in/amanda-aparecida-seribelli-810890167",
+    lattes: "http://lattes.cnpq.br/0044244140623154",
   },
 ];
 
@@ -97,10 +99,15 @@ const Founders = () => {
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50 flex items-center gap-2">
+                  <a 
+                    href={f.lattes} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50 hover:text-secondary flex items-center gap-2 transition-colors"
+                  >
                     <BookOpen className="w-3 h-3" />
                     Currículo Lattes
-                  </span>
+                  </a>
                 </div>
               </div>
             </motion.article>
