@@ -1,5 +1,5 @@
 import oneHealth from "@/assets/one-health.png";
-import { Shield, Heart, TreePine, ArrowRight, Activity, Globe, FlaskConical } from "lucide-react";
+import { Shield, Heart, TreePine, ArrowRight, Activity, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 const OneHealth = () => {
@@ -93,18 +93,7 @@ const OneHealth = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent" />
               
-              {/* Floating tech badge */}
-              <div className="absolute top-10 right-10 p-6 glass rounded-3xl animate-float">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
-                    <FlaskConical className="w-6 h-6 text-secondary" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">R&D Methodology</div>
-                    <div className="text-primary font-display font-extrabold text-lg leading-none mt-1">Holistic Science</div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </motion.div>
         </div>
