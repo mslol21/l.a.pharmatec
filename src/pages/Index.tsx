@@ -29,10 +29,10 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <TargetAudience />
       <About />
       <ScientificAuthority />
       <Services />
+      <TargetAudience />
       <Research />
       <Founders />
       <OneHealth />

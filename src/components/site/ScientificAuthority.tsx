@@ -1,4 +1,4 @@
-import { BookOpen, Building2, FlaskConical, GraduationCap } from "lucide-react";
+import { Building2, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const credentials = [
@@ -20,62 +20,27 @@ const ScientificAuthority = () => {
       <div className="absolute inset-0 bg-grid-dark opacity-10" />
       
       <div className="container-wide relative">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary-glow text-[10px] font-bold uppercase tracking-widest">
-              Autoridade Científica
-            </div>
-            
-
-            
-            <p className="text-xl text-white/60 font-light leading-relaxed max-w-xl">
-              "Equipe com formação avançada em biotecnologia e ciências, dedicada a transformar pesquisa complexa em soluções comerciais viáveis e seguras."
-            </p>
-
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-3 text-white">
-                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shadow-glow-blue">
-                  <BookOpen className="w-6 h-6 text-secondary-glow" />
+        <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-8">
+          {credentials.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/[0.08] transition-all duration-500"
+            >
+              <div className="flex flex-col gap-6 items-center text-center">
+                <div className="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center text-secondary-glow shrink-0 group-hover:scale-110 transition-transform shadow-glow-blue">
+                  <item.icon className="w-8 h-8" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold">15+</div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/40">Anos de Pesquisa</div>
+                  <h3 className="font-display font-bold text-2xl text-white mb-3">{item.title}</h3>
+                  <p className="text-white/50 text-base leading-relaxed">{item.desc}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 text-white">
-                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shadow-glow-blue">
-                  <FlaskConical className="w-6 h-6 text-secondary-glow" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">05+</div>
-                  <div className="text-[10px] uppercase tracking-widest text-white/40">Pipelines Ativos</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-1 gap-6">
-            {credentials.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/[0.08] transition-all duration-500"
-              >
-                <div className="flex gap-6 items-start">
-                  <div className="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center text-secondary-glow shrink-0 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-xl text-white mb-2">{item.title}</h3>
-                    <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
