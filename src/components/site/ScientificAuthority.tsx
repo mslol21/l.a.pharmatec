@@ -26,10 +26,7 @@ const ScientificAuthority = () => {
               Autoridade Científica
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tighter">
-              Excelência técnica <br />
-              <span className="text-gradient-light">que gera resultados</span>.
-            </h2>
+
             
             <p className="text-xl text-white/60 font-light leading-relaxed max-w-xl">
               "Equipe com formação avançada em biotecnologia e ciências, dedicada a transformar pesquisa complexa em soluções comerciais viáveis e seguras."
