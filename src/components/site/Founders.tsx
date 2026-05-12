@@ -8,7 +8,7 @@ const founders = [
     title: "Doutora em Biotecnologia",
     specialty: "Especialista em P&D de fármacos e microbiologia avançada.",
     linkedin: "https://br.linkedin.com/in/let%C3%ADcia-de-almeida-83a620215",
-    lattes: "#",
+    lattes: "http://lattes.cnpq.br/8773443748408311",
   },
   {
     name: "Amanda Ap. Seribelli",
