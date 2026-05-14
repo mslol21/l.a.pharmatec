@@ -1,16 +1,15 @@
 import { Beaker, ShieldCheck, Microscope, FlaskConical, Lightbulb, Zap, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import labImg from "@/assets/lab.png";
-import healthImg from "@/assets/one-health.png";
-import cellsImg from "@/assets/cells.png";
+import { ImagePlaceholder, type PlaceholderVariant } from "./ImagePlaceholder";
 
 interface ServiceCardProps {
   icon: any;
   title: string;
   description: string;
   includes?: string[];
-  image?: string;
+  /** placeholder variant to render in place of a real image */
+  placeholderVariant?: PlaceholderVariant;
   highlighted?: boolean;
   className?: string;
   index: number;
@@ -18,7 +17,7 @@ interface ServiceCardProps {
 
 
 
-const ServiceCard = ({ icon: Icon, title, description, includes, image, highlighted, className, index }: ServiceCardProps) => {
+const ServiceCard = ({ icon: Icon, title, description, includes, placeholderVariant, highlighted, className, index }: ServiceCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -32,28 +31,25 @@ const ServiceCard = ({ icon: Icon, title, description, includes, image, highligh
         highlighted ? "min-h-[400px]" : "min-h-[300px]"
       }`}
     >
-      {/* Background Image for Highlighted Cards */}
-      {image && (
-        <div className="absolute inset-0 bg-primary/40">
-          <img 
-            src={image} 
-            alt={title} 
-            className="w-full h-full object-cover opacity-40 transition-transform duration-700 group-hover:scale-110" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/20" />
+      {/* Background Image Placeholder for Service Cards */}
+      {placeholderVariant && (
+        <div className="absolute inset-0">
+          {/* TODO: substituir ImagePlaceholder por <img src={...} className="w-full h-full object-cover opacity-40" /> */}
+          <ImagePlaceholder variant={placeholderVariant} className="w-full h-full" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/30" />
         </div>
       )}
 
       {/* Background Pattern for Non-Image Cards */}
-      {!image && (
+      {!placeholderVariant && (
         <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
       )}
 
       <div className="relative z-10 p-8 h-full flex flex-col justify-end">
         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
-          image ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-primary/20 border border-primary/20 group-hover:bg-primary group-hover:border-transparent"
+          placeholderVariant ? "bg-white/10 backdrop-blur-md border border-white/20" : "bg-primary/20 border border-primary/20 group-hover:bg-primary group-hover:border-transparent"
         }`}>
-          <Icon className={`w-7 h-7 ${image ? "text-secondary-glow" : "text-primary group-hover:text-white"}`} />
+          <Icon className={`w-7 h-7 ${placeholderVariant ? "text-secondary-glow" : "text-primary group-hover:text-white"}`} />
         </div>
 
         <div className="space-y-3">
@@ -108,7 +104,8 @@ const services = [
       "Fototoxicidade (fibroblastos 3T3)",
       "Triagem de segurança de compostos"
     ],
-    image: labImg,
+    // TODO: image: labImg, // descomente e remova placeholderVariant quando tiver a foto real
+    placeholderVariant: "services-lab" as PlaceholderVariant,
     highlighted: true,
     className: "lg:col-span-1"
   },
@@ -123,7 +120,8 @@ const services = [
       "Detecção e caracterização de bactérias aeróbias e anaeróbias, fungos",
       "Triagem de eficácia de compostos"
     ],
-    image: cellsImg,
+    // TODO: image: cellsImg, // descomente e remova placeholderVariant quando tiver a foto real
+    placeholderVariant: "services-cells" as PlaceholderVariant,
     highlighted: true,
     className: "lg:col-span-1"
   },
@@ -137,7 +135,8 @@ const services = [
       "Ensaios funcionais (Burst oxidativo – ROS, fagocitose)",
       "Ensaios de morte celular (LDH, Piroptose, caspase-1, gasdermina D)"
     ],
-    image: healthImg,
+    // TODO: image: healthImg, // descomente e remova placeholderVariant quando tiver a foto real
+    placeholderVariant: "services-health" as PlaceholderVariant,
     highlighted: true,
     className: "lg:col-span-1"
   }

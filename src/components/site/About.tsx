@@ -1,4 +1,4 @@
-import lab from "@/assets/lab.png";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Microscope, Dna, Leaf, ArrowUpRight, Award, ShieldCheck, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -23,12 +23,11 @@ const About = () => {
             <div className="absolute -inset-10 bg-secondary/5 blur-[120px] rounded-full animate-pulse-glow" />
             
             <div className="relative rounded-[4rem] overflow-hidden shadow-2xl border border-white/40 aspect-[4/5] group">
-              <img 
-                src={lab} 
-                alt="Laboratório L.A. Pharmatec" 
-                className="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-110" 
+              {/* TODO: inserir foto real da sede ou laboratório */}
+              <ImagePlaceholder
+                variant="about"
+                className="w-full h-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
               
 
             </div>

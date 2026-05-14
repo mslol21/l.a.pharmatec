@@ -1,4 +1,4 @@
-import cells from "@/assets/cells.png";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Dog, Sprout, Beaker, Zap, Search, ArrowRight, FlaskConical, Microscope, Database, TestTube2 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -7,9 +7,9 @@ const Research = () => {
     <section id="pesquisa" className="section-padding relative overflow-hidden bg-[hsl(222,84%,4%)]">
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid-dark opacity-20" />
-      <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.05] pointer-events-none mix-blend-overlay">
-        <img src={cells} alt="" className="w-full h-full object-cover" />
-      </div>
+      {/* Subtle radial highlight replacing background image */}
+      <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.04] pointer-events-none"
+           style={{ background: "radial-gradient(ellipse at top right, rgba(96,165,250,0.3) 0%, transparent 70%)" }} />
 
       <div className="container-wide relative">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
@@ -93,10 +93,10 @@ const Research = () => {
               </div>
 
               <div className="relative aspect-square lg:aspect-auto h-full min-h-[300px] rounded-[2rem] overflow-hidden border border-white/10 shadow-glow">
-                <img 
-                  src={cells} 
-                  alt="Pesquisa Laboratorial" 
-                  className="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-110" 
+                {/* TODO: substituir ImagePlaceholder pela foto real de parasitologia/células */}
+                <ImagePlaceholder
+                  variant="research"
+                  className="w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 flex items-center gap-4">
