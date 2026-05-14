@@ -52,7 +52,7 @@ const OneHealth = () => {
                 </div>
                 <div>
                   <p className="text-primary/80 font-medium">Abordagem Multidisciplinar</p>
-                  <p className="text-sm text-muted-foreground">Integramos dados de microbiologia e ecologia para soluções robustas.</p>
+                  <p className="text-sm text-muted-foreground">Integramos dados da resposta do hospedeiro em doenças infecciosas e/ou inflamatórias.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
