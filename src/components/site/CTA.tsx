@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, MessageSquare } from "lucide-react";
+import { ArrowRight, Sparkles, Mail } from "lucide-react";
 import pattern from "@/assets/pattern.png";
 
 const CTA = () => (
@@ -36,13 +36,11 @@ const CTA = () => (
             </a>
             
             <a 
-              href="https://wa.me/5516000000000" 
-              target="_blank"
-              rel="noreferrer"
+              href="#contato" 
               className="inline-flex items-center justify-center gap-4 px-12 py-6 rounded-2xl bg-white/5 border border-white/20 text-white font-bold text-xl backdrop-blur-xl hover:bg-white/10 transition-all shadow-card"
             >
-              <MessageSquare className="w-6 h-6 text-secondary-glow" />
-              WhatsApp agora
+              <Mail className="w-6 h-6 text-secondary-glow" />
+              Enviar mensagem
             </a>
           </div>
           

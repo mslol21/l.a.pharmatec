@@ -9,7 +9,7 @@ import Services from "@/components/site/Services";
 import Research from "@/components/site/Research";
 import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
-import WhatsAppButton from "@/components/site/WhatsAppButton";
+
 import { useEffect } from "react";
 
 const Index = () => {
@@ -38,7 +38,7 @@ const Index = () => {
       <OneHealth />
       <Contact />
       <Footer />
-      <WhatsAppButton />
+
     </main>
   );
 };
