@@ -117,8 +117,7 @@ const services = [
       "Atividade antimicrobiana (MIC, disco difusão)",
       "Detecção de limites microbiológicos (cosméticos, fármacos, alimentos)",
       "Atividade antiparasitária (promastigota de Leishmania, epimastigota de T. cruzi)",
-      "Detecção e caracterização de bactérias aeróbias e anaeróbias, fungos",
-      "Triagem de eficácia de compostos"
+      "Detecção e caracterização de bactérias aeróbias e anaeróbias, fungos"
     ],
     // TODO: image: cellsImg, // descomente e remova placeholderVariant quando tiver a foto real
     placeholderVariant: "services-cells" as PlaceholderVariant,
