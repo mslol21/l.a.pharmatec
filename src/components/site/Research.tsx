@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Research = () => {
   return (
-    <section id="pesquisa" className="section-padding relative overflow-hidden bg-[hsl(222,84%,4%)]">
+    <section id="pesquisa" className="section-padding relative overflow-hidden bg-[hsl(222,84%,10%)]">
       {/* Background patterns */}
       <div className="absolute inset-0 bg-grid-dark opacity-20" />
       {/* Subtle radial highlight replacing background image */}

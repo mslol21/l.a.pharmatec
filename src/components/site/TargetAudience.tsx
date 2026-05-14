@@ -1,4 +1,4 @@
-import { Pill, Droplets, Rocket, GraduationCap, ArrowRight } from "lucide-react";
+import { Pill, Droplets, Rocket, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const audiences = [
@@ -30,7 +30,7 @@ const audiences = [
 
 const TargetAudience = () => {
   return (
-    <section id="publico" className="section-padding relative bg-[hsl(222,84%,4%)] overflow-hidden">
+    <section id="publico" className="section-padding relative bg-[hsl(222,84%,10%)] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-dark opacity-[0.2]" />
       
@@ -84,14 +84,9 @@ const TargetAudience = () => {
                 {item.title}
               </h3>
               
-              <p className="text-white/50 text-sm leading-relaxed mb-6">
+              <p className="text-white/50 text-sm leading-relaxed">
                 {item.desc}
               </p>
-
-              <div className="flex items-center gap-2 text-secondary-glow font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                Saber mais
-                <ArrowRight className="w-4 h-4" />
-              </div>
             </motion.div>
           ))}
         </div>

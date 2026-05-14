@@ -9,7 +9,7 @@ const Hero = () => {
       className="relative min-h-[100vh] flex items-center pt-32 pb-20 overflow-hidden"
       style={{
         background:
-          "radial-gradient(circle at top right, hsl(218 80% 12%) 0%, hsl(222 84% 6%) 100%)",
+          "radial-gradient(circle at top right, hsl(218 80% 18%) 0%, hsl(222 84% 12%) 100%)",
       }}
     >
       {/* Background Effects */}
