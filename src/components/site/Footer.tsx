@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Dna, Linkedin, Mail, MapPin, Globe, ArrowRight } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-[hsl(222,84%,10%)] text-white/40 pt-32 pb-16 px-6 md:px-10 relative overflow-hidden">
+  <footer className="bg-[hsl(222,84%,18%)] text-white/40 pt-32 pb-16 px-6 md:px-10 relative overflow-hidden">
     {/* Decorative Elements */}
     <div className="absolute inset-0 bg-grid-dark opacity-10 pointer-events-none" />
     <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />

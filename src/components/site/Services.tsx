@@ -143,7 +143,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section id="servicos" className="section-padding relative bg-[hsl(222,84%,10%)] overflow-hidden">
+  <section id="servicos" className="section-padding relative bg-[hsl(222,84%,18%)] overflow-hidden">
     {/* Decorative Elements */}
     <div className="absolute inset-0 bg-grid-dark opacity-20" />
     <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary-glow/10 blur-[120px] rounded-full" />

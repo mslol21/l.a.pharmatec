@@ -85,7 +85,7 @@ const Contact = () => {
               <div className="relative z-10 space-y-8">
                 <div className="space-y-3">
                   <h3 className="font-display text-4xl font-bold tracking-tight">Agendar Reunião</h3>
-                  <p className="text-white/60 font-light max-w-xs leading-relaxed">P&D, Bioensaios ou Parceria Científica. Retornaremos em 24h.</p>
+                  <p className="text-white/60 font-light max-w-xs leading-relaxed">P&D, Bioensaios ou Parceria Científica.</p>
                 </div>
 
                 <div className="space-y-5">

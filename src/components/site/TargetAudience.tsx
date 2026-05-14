@@ -30,7 +30,7 @@ const audiences = [
 
 const TargetAudience = () => {
   return (
-    <section id="publico" className="section-padding relative bg-[hsl(222,84%,10%)] overflow-hidden">
+    <section id="publico" className="section-padding relative bg-[hsl(222,84%,18%)] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-dark opacity-[0.2]" />
       

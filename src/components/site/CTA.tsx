@@ -45,8 +45,6 @@ const CTA = () => (
           </div>
           
           <div className="pt-10 flex items-center gap-8 text-white/30 text-[10px] uppercase font-bold tracking-widest">
-            <span>Retorno em até 24h</span>
-            <div className="w-1 h-1 bg-white/20 rounded-full" />
             <span>Consultoria Técnica Especializada</span>
           </div>
         </div>
