@@ -1,4 +1,4 @@
-import { ImagePlaceholder } from "./ImagePlaceholder";
+// ImagePlaceholder import removed; using real images
 import { Shield, Heart, TreePine, ArrowRight, Activity, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -86,11 +86,7 @@ const OneHealth = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-secondary/5 via-transparent to-transparent opacity-60" />
             
             <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-2xl border border-white/40 aspect-square group">
-              {/* TODO: inserir foto real conceitual One Health (natureza + laboratório + animal) */}
-              <ImagePlaceholder
-                variant="one-health"
-                className="w-full h-full"
-              />
+              <img src="/onehealth.png" alt="Conceito One Health" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent" />
             </div>
           </motion.div>

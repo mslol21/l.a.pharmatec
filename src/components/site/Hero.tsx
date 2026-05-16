@@ -1,4 +1,4 @@
-import { ImagePlaceholder } from "./ImagePlaceholder";
+// ImagePlaceholder import removed; using real images
 import { ArrowRight, Microscope, Dna } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -76,11 +76,7 @@ const Hero = () => {
             <div className="absolute -inset-4 bg-gradient-to-tr from-secondary/20 to-primary/20 blur-3xl rounded-[3rem] opacity-50" />
             
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-premium aspect-[4/5] sm:aspect-square lg:aspect-[4/5] xl:aspect-square group">
-              {/* TODO: substituir pelo placeholder quando tiver a foto real do laboratório */}
-              <ImagePlaceholder
-                variant="hero"
-                className="w-full h-full"
-              />
+              <img src="/hero.png" alt="L.A. Pharmatec Laboratório" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               
               {/* Floating Data Badge */}

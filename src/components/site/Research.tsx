@@ -1,4 +1,3 @@
-import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Dog, Sprout, Beaker, Zap, Search, ArrowRight, FlaskConical, Microscope, Database, TestTube2 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -93,11 +92,7 @@ const Research = () => {
               </div>
 
               <div className="relative aspect-square lg:aspect-auto h-full min-h-[300px] rounded-[2rem] overflow-hidden border border-white/10 shadow-glow">
-                {/* TODO: substituir ImagePlaceholder pela foto real de parasitologia/células */}
-                <ImagePlaceholder
-                  variant="research"
-                  className="w-full h-full"
-                />
+                <img src="/p&d.png" alt="Pesquisa e Desenvolvimento" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-secondary-glow flex items-center justify-center">

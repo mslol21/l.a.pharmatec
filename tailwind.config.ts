@@ -58,11 +58,14 @@ export default {
         'gradient-spot': 'var(--gradient-spot)',
       },
       boxShadow: {
-        elegant: 'var(--shadow-elegant)',
-        premium: 'var(--shadow-premium)',
-        glow: 'var(--shadow-glow)',
+        xs:          'var(--shadow-xs)',
+        sm:          'var(--shadow-sm)',
+        md:          'var(--shadow-md)',
+        premium:     'var(--shadow-premium)',
+        deep:        'var(--shadow-deep)',
+        glow:        'var(--shadow-glow)',
         'glow-blue': 'var(--shadow-glow-blue)',
-        card: 'var(--shadow-card)',
+        card:        'var(--shadow-card)',
       },
       borderRadius: {
         lg: "var(--radius)",

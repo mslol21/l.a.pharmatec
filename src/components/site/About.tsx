@@ -1,116 +1,121 @@
-import { ImagePlaceholder } from "./ImagePlaceholder";
-import { Microscope, Dna, Leaf, ArrowUpRight, Award, ShieldCheck, Zap } from "lucide-react";
+import { Leaf, ArrowUpRight, Award, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
-const About = () => {
-  return (
-    <section id="sobre" className="section-padding relative bg-gradient-to-b from-white to-primary/5 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid opacity-[0.2]" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/5 to-transparent pointer-events-none" />
+const cards = [
+  {
+    icon: ShieldCheck,
+    title: "Nossa História",
+    desc: "Somos uma startup com ampla experiência em Pesquisa e Desenvolvimento (P&D) voltada ao desenvolvimento de novos fármacos, atuando de forma pioneira nas áreas de microbiologia e parasitologia.",
+    color: "bg-primary/8 text-primary",
+    ring: "group-hover:ring-primary/15",
+  },
+  {
+    icon: Leaf,
+    title: "Missão e Objetivos",
+    desc: "Atuamos na conversão direta do conhecimento científico em soluções terapêuticas inovadoras para doenças infecciosas e inflamatórias, sempre fundamentados na interconexão humano-animal-meio ambiente através do conceito One Health.",
+    color: "bg-secondary/8 text-secondary",
+    ring: "group-hover:ring-secondary/15",
+  },
+];
 
-      <div className="container-wide relative">
-        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-32 items-center">
-          
-          {/* Visual Side */}
-          <motion.div 
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="relative"
+const About = () => (
+  <section id="sobre" className="section-padding relative bg-gradient-to-b from-white via-white to-primary/[0.03] overflow-hidden">
+    <div className="absolute inset-0 bg-grid opacity-[0.18]" />
+    <div className="absolute top-0 right-0 w-2/5 h-3/4 bg-gradient-to-bl from-secondary/[0.04] to-transparent pointer-events-none" />
+
+    <div className="container-wide relative">
+      <div className="grid lg:grid-cols-[1fr_1.25fr] gap-16 lg:gap-36 items-center">
+
+        {/* Visual Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -32 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative"
+        >
+          {/* Ambient glow */}
+          <div className="absolute -inset-12 bg-secondary/[0.06] blur-[100px] rounded-full animate-pulse-glow pointer-events-none" />
+
+          {/* Main image frame */}
+          <div
+            className="relative rounded-[3.5rem] overflow-hidden aspect-[4/3] lg:aspect-[16/10] group"
+            style={{ boxShadow: "var(--shadow-deep), 0 0 0 1px rgba(255,255,255,0.5)" }}
           >
-            <div className="absolute -inset-10 bg-secondary/5 blur-[120px] rounded-full animate-pulse-glow" />
-            
-            <div className="relative rounded-[4rem] overflow-hidden shadow-2xl border border-white/40 aspect-[4/5] group">
-              {/* TODO: inserir foto real da sede ou laboratório */}
-              <ImagePlaceholder
-                variant="about"
-                className="w-full h-full"
-              />
-              
+            <img src="/sobre.png" alt="Sobre a L.A. Pharmatec" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          </div>
 
-            </div>
-
-            {/* Credential Card */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="absolute -bottom-10 -right-6 lg:-right-16 p-8 glass rounded-[3rem] shadow-2xl border-white/60 max-w-[320px]"
-            >
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white shadow-glow-blue">
-                    <Award className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <div className="text-primary font-display font-extrabold text-xl leading-none">Supera Parque</div>
-                    <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-secondary mt-1">Incubadora de Elite</div>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Localizados em um dos principais polos de inovação tecnológica do Brasil.
-                </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.55, duration: 0.7 }}
+            className="absolute -bottom-16 -right-4 lg:-right-8 p-7 glass rounded-[2.5rem] max-w-[290px] z-10"
+            style={{ boxShadow: "var(--shadow-deep)" }}
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white shrink-0" style={{ boxShadow: "var(--shadow-glow-blue)" }}>
+                <Award className="w-6 h-6" />
               </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Content Side */}
-          <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-12"
-          >
-            <div className="space-y-6">
-              <div className="eyebrow">Sobre a L.A. Pharmatec</div>
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary leading-[1.05] tracking-tighter">
-                Ciência e <br />
-                <span className="text-gradient">Inovação.</span>
-              </h2>
+              <div>
+                <div className="text-primary font-display font-extrabold text-[17px] leading-tight">Supera Parque</div>
+                <div className="text-[9px] uppercase font-bold tracking-[0.3em] text-secondary mt-0.5">Incubadora de Elite</div>
+              </div>
             </div>
+            <p className="text-[13px] text-muted-foreground leading-relaxed">
+              Um dos principais polos de inovação tecnológica do Brasil.
+            </p>
+          </motion.div>
+        </motion.div>
 
-            <div className="space-y-6">
-              {[
-                { 
-                  icon: ShieldCheck, 
-                  title: "Nossa História", 
-                  desc: "Somos uma startup com ampla experiência em Pesquisa e Desenvolvimento (P&D) voltada ao desenvolvimento de novos fármacos, atuando de forma pioneira nas áreas de microbiologia e parasitologia.",
-                  color: "bg-primary/10 text-primary"
-                },
-                { 
-                  icon: Leaf, 
-                  title: "Missão e Objetivos", 
-                  desc: "Atuamos na conversão direta do conhecimento científico em soluções terapêuticas inovadoras para doenças infecciosas e inflamatórias, sempre fundamentados na interconexão humano-animal-meio ambiente através do conceito One Health.",
-                  color: "bg-secondary/10 text-secondary"
-                }
-              ].map((item, i) => (
-                <div key={i} className="group flex gap-6 p-10 rounded-[2.5rem] bg-white border border-white/60 shadow-premium hover:shadow-glow-blue hover:-translate-y-2 transition-all duration-700">
-                  <div className={`w-16 h-16 rounded-2xl ${item.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-sm`}>
-                    <item.icon className="w-7 h-7" />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="font-display font-extrabold text-2xl text-primary">{item.title}</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed font-light">{item.desc}</p>
-                  </div>
+        {/* Content Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 32 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-10"
+        >
+          <div className="space-y-5">
+            <div className="eyebrow">Sobre a L.A. Pharmatec</div>
+            <h2 className="text-4xl md:text-5xl lg:text-[5.5rem] font-extrabold text-primary leading-[1.02] tracking-[-0.05em]">
+              Ciência e{" "}
+              <span className="text-gradient">Inovação.</span>
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {cards.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.12, duration: 0.6 }}
+                className={`group flex gap-5 p-8 rounded-[2rem] bg-white ring-1 ring-border/60 card-premium cursor-default`}
+              >
+                <div className={`w-14 h-14 rounded-xl ${item.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-500 ring-2 ring-transparent ${item.ring} transition-shadow`}>
+                  <item.icon className="w-6 h-6" />
                 </div>
-              ))}
-            </div>
+                <div className="space-y-2">
+                  <h3 className="font-display font-bold text-[1.15rem] text-primary leading-snug">{item.title}</h3>
+                  <p className="text-muted-foreground text-[13.5px] leading-relaxed font-normal">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-            <div className="pt-6">
-              <a href="#contato" className="btn-primary group">
-                Solicitar Consultoria
-                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
+          <div className="pt-2">
+            <a href="#contato" className="btn-primary group">
+              Solicitar Consultoria
+              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </a>
+          </div>
+        </motion.div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
-
