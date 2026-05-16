@@ -24,20 +24,20 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-[100] transition-all duration-700 ${
-        scrolled ? "py-2 sm:py-3" : "py-5 sm:py-8"
+        scrolled ? "py-2" : "py-4 lg:py-6"
       }`}
     >
-      <div className="container-wide px-5 lg:px-8">
+      <div className="container-wide px-4 lg:px-6">
         <nav
-          className={`flex items-center justify-between rounded-[2rem] px-5 sm:px-7 py-3 transition-all duration-700 ${
+          className={`flex items-center justify-between rounded-full px-5 transition-all duration-700 ${
             scrolled
-              ? "glass border-white/60 shadow-md"
-              : "bg-transparent border-transparent"
+              ? "py-2 glass border-white/60 shadow-md"
+              : "py-3 lg:py-4 bg-transparent border-transparent"
           }`}
         >
           {/* LOGO */}
-          <a href="#home" className="flex items-center gap-3.5 group shrink-0">
-            <div className="relative w-[68px] h-[68px] flex items-center justify-center">
+          <a href="#home" className="flex items-center gap-3 group shrink-0">
+            <div className={`relative flex items-center justify-center transition-all duration-700 ${scrolled ? "w-[44px] h-[44px]" : "w-[56px] h-[56px]"}`}>
               {/* Subtle ring on hover */}
               <div className="absolute inset-0 rounded-full ring-0 group-hover:ring-2 ring-secondary/20 transition-all duration-500" />
               <img
@@ -47,10 +47,10 @@ const Navbar = () => {
               />
             </div>
             <div className="leading-tight hidden sm:block">
-              <div className="font-display font-extrabold text-primary text-[18px] tracking-[-0.04em] leading-none">
+              <div className={`font-display font-extrabold text-primary tracking-[-0.04em] leading-none transition-all duration-700 ${scrolled ? "text-[16px]" : "text-[18px]"}`}>
                 L.A. Pharmatec
               </div>
-              <div className="text-[8.5px] uppercase font-bold tracking-[0.45em] text-secondary mt-1 leading-none">
+              <div className={`uppercase font-bold tracking-[0.45em] text-secondary leading-none transition-all duration-700 ${scrolled ? "text-[7.5px] mt-0.5" : "text-[8.5px] mt-1"}`}>
                 Biotech Excellence
               </div>
             </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <a
               href="#contato"
-              className="hidden lg:inline-flex items-center gap-2.5 px-7 py-3.5 rounded-[1.25rem] bg-primary text-white font-bold text-[11.5px] uppercase tracking-[0.12em] transition-all duration-500 group"
+              className={`hidden lg:inline-flex items-center gap-2 rounded-full bg-primary text-white font-bold uppercase tracking-[0.12em] transition-all duration-500 group ${scrolled ? "px-6 py-2.5 text-[10.5px]" : "px-7 py-3.5 text-[11.5px]"}`}
               style={{ boxShadow: "var(--shadow-sm)" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";

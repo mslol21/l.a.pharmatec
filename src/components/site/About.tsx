@@ -32,26 +32,27 @@ const About = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
+          className="relative flex flex-col items-center lg:items-end"
         >
           {/* Ambient glow */}
           <div className="absolute -inset-12 bg-secondary/[0.06] blur-[100px] rounded-full animate-pulse-glow pointer-events-none" />
 
           {/* Main image frame */}
           <div
-            className="relative rounded-[3.5rem] overflow-hidden aspect-[4/3] lg:aspect-[16/10] group"
+            className="relative w-full rounded-[3.5rem] overflow-hidden aspect-[4/3] lg:aspect-[16/10] group z-0"
             style={{ boxShadow: "var(--shadow-deep), 0 0 0 1px rgba(255,255,255,0.5)" }}
           >
             <img src="/sobre.png" alt="Sobre a L.A. Pharmatec" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           </div>
 
+          {/* Credential card */}
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.55, duration: 0.7 }}
-            className="absolute -bottom-16 -right-4 lg:-right-8 p-7 glass rounded-[2.5rem] max-w-[290px] z-10"
+            className="relative -mt-16 lg:-mt-20 lg:mr-8 p-7 glass rounded-[2.5rem] max-w-[290px] z-10"
             style={{ boxShadow: "var(--shadow-deep)" }}
           >
             <div className="flex items-center gap-4 mb-4">
