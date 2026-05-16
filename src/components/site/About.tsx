@@ -24,7 +24,19 @@ const About = () => (
     <div className="absolute top-0 right-0 w-2/5 h-3/4 bg-gradient-to-bl from-secondary/[0.04] to-transparent pointer-events-none" />
 
     <div className="container-wide relative">
-      <div className="grid lg:grid-cols-[1fr_1.25fr] gap-16 lg:gap-36 items-center">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center space-y-4 mb-16 lg:mb-20 max-w-4xl mx-auto"
+      >
+        <div className="eyebrow mx-auto justify-center">Sobre a L.A. Pharmatec</div>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary leading-[1.02] tracking-[-0.05em]">
+          Ciência e <span className="text-gradient">Inovação.</span>
+        </h2>
+      </motion.div>
+
+      <div className="grid lg:grid-cols-[1fr_1.25fr] gap-16 lg:gap-36 items-start">
 
         {/* Visual Side */}
         <motion.div
@@ -52,7 +64,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.55, duration: 0.7 }}
-            className="relative -mt-16 lg:-mt-20 lg:mr-8 p-7 glass rounded-[2.5rem] max-w-[290px] z-10"
+            className="relative mt-6 lg:mt-8 lg:mr-4 p-7 glass rounded-[2.5rem] w-full max-w-[320px] z-10 self-center lg:self-end"
             style={{ boxShadow: "var(--shadow-deep)" }}
           >
             <div className="flex items-center gap-4 mb-4">
@@ -76,16 +88,8 @@ const About = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-10"
+          className="space-y-10 lg:pt-8"
         >
-          <div className="space-y-5">
-            <div className="eyebrow">Sobre a L.A. Pharmatec</div>
-            <h2 className="text-4xl md:text-5xl lg:text-[5.5rem] font-extrabold text-primary leading-[1.02] tracking-[-0.05em]">
-              Ciência e{" "}
-              <span className="text-gradient">Inovação.</span>
-            </h2>
-          </div>
-
           <div className="space-y-4">
             {cards.map((item, i) => (
               <motion.div
