@@ -47,10 +47,10 @@ const Navbar = () => {
               />
             </div>
             <div className="leading-tight hidden sm:block">
-              <div className={`font-display font-extrabold text-primary tracking-[-0.04em] leading-none transition-all duration-700 ${scrolled ? "text-[16px]" : "text-[18px]"}`}>
+              <div className={`font-display font-extrabold tracking-[-0.04em] leading-none transition-all duration-700 ${scrolled ? "text-primary text-[16px]" : "text-white text-[18px]"}`}>
                 L.A. Pharmatec
               </div>
-              <div className={`uppercase font-bold tracking-[0.45em] text-secondary leading-none transition-all duration-700 ${scrolled ? "text-[7.5px] mt-0.5" : "text-[8.5px] mt-1"}`}>
+              <div className={`uppercase font-bold tracking-[0.45em] leading-none transition-all duration-700 ${scrolled ? "text-secondary text-[7.5px] mt-0.5" : "text-white/60 text-[8.5px] mt-1"}`}>
                 Biotech Excellence
               </div>
             </div>
@@ -62,11 +62,17 @@ const Navbar = () => {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="relative px-4 py-2.5 rounded-xl text-[11.5px] font-semibold uppercase tracking-[0.12em] text-primary/50 hover:text-primary transition-colors duration-300 group"
+                  className={`relative px-4 py-2.5 rounded-xl text-[11.5px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 group ${
+                    scrolled 
+                      ? "text-primary/50 hover:text-primary" 
+                      : "text-white/70 hover:text-white"
+                  }`}
                 >
                   {l.label}
                   {/* animated underline */}
-                  <span className="absolute bottom-1 left-4 right-4 h-[1.5px] bg-primary/60 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-400 rounded-full" />
+                  <span className={`absolute bottom-1 left-4 right-4 h-[1.5px] scale-x-0 group-hover:scale-x-100 origin-left transition-all duration-400 rounded-full ${
+                    scrolled ? "bg-primary/60" : "bg-white/80"
+                  }`} />
                 </a>
               </li>
             ))}
@@ -76,15 +82,23 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <a
               href="#contato"
-              className={`hidden lg:inline-flex items-center gap-2 rounded-full bg-primary text-white font-bold uppercase tracking-[0.12em] transition-all duration-500 group ${scrolled ? "px-6 py-2.5 text-[10.5px]" : "px-7 py-3.5 text-[11.5px]"}`}
-              style={{ boxShadow: "var(--shadow-sm)" }}
+              className={`hidden lg:inline-flex items-center gap-2 rounded-full font-bold uppercase tracking-[0.12em] transition-all duration-500 group ${
+                scrolled 
+                  ? "bg-primary text-white px-6 py-2.5 text-[10.5px]" 
+                  : "bg-white text-primary hover:bg-white/90 px-7 py-3.5 text-[11.5px]"
+              }`}
+              style={{ boxShadow: scrolled ? "var(--shadow-sm)" : "none" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-glow-blue), var(--shadow-md)";
+                if (scrolled) {
+                  (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-glow-blue), var(--shadow-md)";
+                } else {
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(255,255,255,0.15)";
+                }
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = "";
-                (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-sm)";
+                (e.currentTarget as HTMLElement).style.boxShadow = scrolled ? "var(--shadow-sm)" : "none";
               }}
             >
               Consultoria
@@ -94,7 +108,11 @@ const Navbar = () => {
             <button
               onClick={() => setOpen(!open)}
               className={`lg:hidden w-11 h-11 flex items-center justify-center rounded-xl transition-all duration-400 ${
-                open ? "bg-primary text-white" : "bg-white border border-border text-primary shadow-xs"
+                open 
+                  ? "bg-primary text-white" 
+                  : scrolled 
+                    ? "bg-white border border-border text-primary shadow-xs" 
+                    : "bg-white/10 border border-white/10 text-white backdrop-blur-md"
               }`}
               aria-label="Toggle Menu"
             >
