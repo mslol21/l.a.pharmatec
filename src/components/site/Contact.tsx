@@ -1,7 +1,57 @@
-import { Mail, MapPin, Linkedin, Send } from "lucide-react";
+import { useState } from "react";
+import { Mail, MapPin, Linkedin, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a9bf11b5-4419-4143-9cde-67441b5b42d8",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Novo Contato Site - ${formData.name}`,
+          from_name: "L.A. Pharmatec - Site"
+        })
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000); // Reseta após 5 segundos
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch (error) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
+  };
+
   return (
     <section id="contato" className="section-padding bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-30" />
@@ -78,11 +128,11 @@ const Contact = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="relative"
           >
-            <form action="https://formsubmit.co/diretoria.lapharmatec@gmail.com" method="POST" className="relative p-10 md:p-12 rounded-[3.5rem] bg-gradient-deep text-white shadow-elegant overflow-hidden">
+            <div className="relative p-10 md:p-12 rounded-[3.5rem] bg-gradient-deep text-white shadow-elegant overflow-hidden">
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-secondary-glow/20 rounded-full blur-[120px] pointer-events-none" />
               <div className="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none" />
               
-              <div className="relative z-10 space-y-8">
+              <form onSubmit={handleSubmit} className="relative z-10 space-y-8">
                 <div className="space-y-3">
                   <h3 className="font-display text-4xl font-bold tracking-tight">Agendar Reunião</h3>
                   <p className="text-white/60 font-light max-w-xs leading-relaxed">P&D, Bioensaios ou Parceria Científica.</p>
@@ -91,26 +141,50 @@ const Contact = () => {
                 <div className="space-y-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 px-2">Nome completo</label>
-                    <input type="text" name="name" required className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all" placeholder="Seu nome ou empresa" />
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required disabled={status === "loading"} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all disabled:opacity-50" placeholder="Seu nome ou empresa" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 px-2">E-mail corporativo</label>
-                    <input type="email" name="email" required className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all" placeholder="voce@empresa.com.br" />
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required disabled={status === "loading"} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all disabled:opacity-50" placeholder="voce@empresa.com.br" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 px-2">Sua Mensagem</label>
-                    <textarea name="message" required rows={4} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all resize-none" placeholder="Descreva brevemente como podemos colaborar..." />
-                    <input type="hidden" name="_next" value={window.location.href} />
-                    <input type="hidden" name="_captcha" value="false" />
+                    <textarea name="message" value={formData.message} onChange={handleChange} required disabled={status === "loading"} rows={4} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:bg-white/10 focus:border-secondary-glow focus:outline-none transition-all resize-none disabled:opacity-50" placeholder="Descreva brevemente como podemos colaborar..." />
                   </div>
                 </div>
 
-                <button type="submit" className="w-full flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-secondary-glow text-primary font-bold text-lg shadow-glow hover:shadow-elegant transition-all hover:-translate-y-1 active:scale-95">
-                  <Send className="w-5 h-5" />
-                  Entrar em contato
+                {status === "success" && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="p-4 rounded-2xl bg-green-500/20 border border-green-500/30 flex items-center gap-3 text-green-300">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <p className="text-sm font-medium">Mensagem enviada com sucesso! Em breve retornaremos o contato.</p>
+                  </motion.div>
+                )}
+
+                {status === "error" && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="p-4 rounded-2xl bg-red-500/20 border border-red-500/30 flex items-center gap-3 text-red-300">
+                    <AlertCircle className="w-5 h-5" />
+                    <p className="text-sm font-medium">Ocorreu um erro ao enviar. Por favor, tente novamente ou use o e-mail corporativo.</p>
+                  </motion.div>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={status === "loading" || status === "success"}
+                  className="w-full flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-secondary-glow text-primary font-bold text-lg shadow-glow hover:shadow-elegant transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
+                >
+                  {status === "loading" ? (
+                    <Loader2 className="w-6 h-6 animate-spin" />
+                  ) : status === "success" ? (
+                    <CheckCircle2 className="w-6 h-6" />
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Enviar Mensagem
+                    </>
+                  )}
                 </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>
