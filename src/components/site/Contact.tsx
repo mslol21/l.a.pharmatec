@@ -22,7 +22,15 @@ const Contact = () => {
     setStatus("loading");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        subject: `Novo Contato Site - ${formData.name}`,
+        from_name: "L.A. Pharmatec - Site"
+      };
+
+      const primaryPromise = fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,15 +38,28 @@ const Contact = () => {
         },
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "a9bf11b5-4419-4143-9cde-67441b5b42d8",
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `Novo Contato Site - ${formData.name}`,
-          from_name: "L.A. Pharmatec - Site"
+          ...payload
         })
       });
 
-      if (response.ok) {
+      const secondaryPromise = fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_SECONDARY_ACCESS_KEY || "2400fd30-8148-4164-9fff-0f51876c1075",
+          ...payload
+        })
+      });
+
+      const [primaryResponse, secondaryResponse] = await Promise.all([
+        primaryPromise,
+        secondaryPromise
+      ]);
+
+      if (primaryResponse.ok || secondaryResponse.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setStatus("idle"), 5000); // Reseta após 5 segundos
@@ -51,6 +72,7 @@ const Contact = () => {
       setTimeout(() => setStatus("idle"), 5000);
     }
   };
+
 
   return (
     <section id="contato" className="section-padding bg-background relative overflow-hidden">
